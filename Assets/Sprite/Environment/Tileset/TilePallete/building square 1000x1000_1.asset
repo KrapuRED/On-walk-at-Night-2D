@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Asphalt Tile 500x500_0
+  m_Name: building square 1000x1000_1
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: -5724166143725416415, guid: 90cbacf205e269745847b29c26ccbd73, type: 3}
+  m_Sprite: {fileID: -436034020, guid: af734be5fb67cda4db1f5d4ad6594643, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

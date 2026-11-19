@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Sidewalk Tile 500x500_0
+  m_Name: building square 1000x1000_2
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: 9014427288337590739, guid: 654e54a4b9aca0646ae1a1d8436aad05, type: 3}
+  m_Sprite: {fileID: -1533862841, guid: af734be5fb67cda4db1f5d4ad6594643, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
