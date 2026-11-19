@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 745300304}
   - component: {fileID: 745300308}
   - component: {fileID: 745300309}
+  - component: {fileID: 745300311}
   - component: {fileID: 745300310}
   m_Layer: 0
   m_Name: Player
@@ -244,11 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63c467c2e8be1049a422f6b2dcf0e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementPlayer
-  _speed: 10
-  _sprintSpeed: 15
-  _sprintCost: 0
-  _maxStamina: 45
-  _staminaRegen: 0
 --- !u!114 &745300310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,6 +387,24 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &745300311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745300303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8bcdaba74a1fc4d839cfcf9fdf8967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControllerPlayer
+  _currentState: 0
+  _speed: 10
+  _sprintSpeed: 15
+  _sprintCost: 15
+  _maxStamina: 45
+  _staminaRegen: 5
 --- !u!1 &1433893324
 GameObject:
   m_ObjectHideFlags: 0
