@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Node
+public class Node : IHeapItem<Node>
 {
     public bool Walkable;
     public Vector3 WorldPosition;
@@ -24,5 +24,27 @@ public class Node
     public int FCost
     {
         get { return GCost + HCost; }
+    }
+
+    public int HeapIndex 
+    { 
+        get
+        {
+            return HeapIndex;
+        }
+        set
+        {
+            HeapIndex = value;
+        } 
+    }
+
+    public int CompareTo(Node nodeToCompare)
+    {
+        int compare = FCost.CompareTo(nodeToCompare.FCost);
+        if (compare == 0)
+        {
+            compare = HCost.CompareTo(nodeToCompare.HCost);
+        }
+        return -compare;
     }
 }
