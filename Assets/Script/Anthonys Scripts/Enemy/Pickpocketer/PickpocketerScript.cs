@@ -2,36 +2,38 @@ using UnityEngine;
 
 public class PickpocketerScript : Enemy
 {
-    [SerializeField] private BasicPathFinding pathFinding;
-    [SerializeField] private float enemySpeed = 5f;
-
+    [SerializeField] private WaypointMoverEnemy _waypointMoverEnemy;
     private void Start()
     {
+        if (_waypointMoverEnemy == null)
+        {
+            _waypointMoverEnemy = GetComponent<WaypointMoverEnemy>();
+        }
         ChangeState(EnemyState.Chasing);
-        pathFinding.EnemySpeedSetUp(enemySpeed);
-    }
-    private void FixedUpdate()
-    {
-        if(currentState == EnemyState.Chasing)
-            pathFinding.MoveTowardWayPoint();
     }
 
     protected override void EnemyIdle()
     {
-        pathFinding.EnemySpeedSetUp(0);
+        _enemyMovement.SetEnemySpeed(0);
     }
 
-
-
-    // Enemy Hit Player
-
+    protected override void EnemyChasing()
+    {
+        _enemyMovement.SetEnemySpeed(_enemySpeed);
+    }  
 
     protected override void EnemyHitPlayer()
     {
         base.EnemyHitPlayer();
         Debug.Log("Pickpocketer HIHIHI ");
     }
-
+    private void FixedUpdate()
+    {
+        if (currentState == EnemyState.Chasing)
+        {
+            _enemyMovement.SetDirection(_waypointMoverEnemy.MoveTowardWayPoint());
+        }
+    }
 
 
     // Enemy Hit Vending Machine

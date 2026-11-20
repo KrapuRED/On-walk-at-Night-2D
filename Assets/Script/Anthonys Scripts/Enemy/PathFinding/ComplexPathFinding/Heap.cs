@@ -62,7 +62,7 @@ public class Heap<T> where T : IHeapItem<T>
                         swapIndex = childIndexRight;
                     }
                 }
-                if(item.CompareTo(_items[childIndexLeft]) < 0)
+                if (item.CompareTo(_items[swapIndex]) < 0)
                 {
                     Swap(item, _items[swapIndex]);
                 }
@@ -70,6 +70,16 @@ public class Heap<T> where T : IHeapItem<T>
                 {
                     return;
                 }
+                    
+
+                //if(item.CompareTo(_items[childIndexLeft]) < 0)
+                //{
+                //    Swap(item, _items[swapIndex]);
+                //}
+                //else
+                //{
+                //    return;
+                //}
             }
             else
             {

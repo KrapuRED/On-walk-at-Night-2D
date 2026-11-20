@@ -12,6 +12,18 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] protected EnemyState currentState;
 
+    [Header("Enemy Movement")]
+    [SerializeField] protected MovementEnemy _enemyMovement;
+    [SerializeField] protected float _enemySpeed = 5f;
+
+    private void Start()
+    {
+        if(_enemyMovement == null)
+        {
+            _enemyMovement = GetComponent<MovementEnemy>();
+        }
+        _enemyMovement.SetEnemySpeed(_enemySpeed);
+    }
     public void ChangeState(EnemyState state)
     {
         if(currentState == state) return;

@@ -26,17 +26,7 @@ public class Node : IHeapItem<Node>
         get { return GCost + HCost; }
     }
 
-    public int HeapIndex 
-    { 
-        get
-        {
-            return HeapIndex;
-        }
-        set
-        {
-            HeapIndex = value;
-        } 
-    }
+    public int HeapIndex { get; set; }
 
     public int CompareTo(Node nodeToCompare)
     {
