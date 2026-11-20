@@ -1,32 +1,52 @@
+using System;
 using UnityEngine;
 
 public class ControllerPlayer : StatePlayer
 {
     private InputPlayer _inputPlayer;
     private MovementPlayer _movementPlayer;
+    private StaminaPlayer _staminaPlayer;
 
-    [SerializeField] private float _speed;
-    [SerializeField] private float _sprintSpeed;
-    [SerializeField] private float _sprintCost;
+    public event Action<StatPlayer> OnInitialize;
+    public event Action<float> OnWalk;
+    public event Action<float, float> OnSprint;
 
-    [SerializeField] private float _maxStamina;
-    [SerializeField] private float _staminaRegen;
+    [SerializeField] private StatPlayer _statPlayer;
 
     private Vector2 _currentDirection = Vector2.zero;
     private Vector2 _lastDirection = Vector2.right;
     private bool _canSprint = false;
+    private float _currStamina;
     private void Awake()
     {
         _inputPlayer = GetComponent<InputPlayer>();
         _movementPlayer = GetComponent<MovementPlayer>();
-
-        _movementPlayer.SetSpeed(_speed);
+        _staminaPlayer = GetComponent<StaminaPlayer>();
     }
 
     private void OnEnable()
     {
         _inputPlayer.OnMovementInput += Movement;
         _inputPlayer.OnSprintInput += Sprint;
+        _staminaPlayer.OnStaminaChanged += StaminaCount;
+    }
+
+    private void OnDisable()
+    {
+        _inputPlayer.OnMovementInput -= Movement;
+        _inputPlayer.OnSprintInput -= Sprint;
+        _staminaPlayer.OnStaminaChanged -= StaminaCount;
+    }
+
+    private void Start()
+    {
+        _currStamina = _statPlayer.MaxStamina;
+        OnInitialize?.Invoke(_statPlayer);
+    }
+
+    private void Update()
+    {
+        UpdateMovementState();
     }
 
     private void Movement(Vector2 direction)
@@ -38,7 +58,7 @@ public class ControllerPlayer : StatePlayer
         {
             _lastDirection = _currentDirection;
         }
-        UpdateMovementState();
+        
     }
 
     private void UpdateMovementState()
@@ -49,7 +69,7 @@ public class ControllerPlayer : StatePlayer
             return;
         }
 
-        if (_canSprint)
+        if (_canSprint && _currStamina > 0)
         {
             ChangeState(PlayerState.Sprinting);
         }
@@ -65,15 +85,20 @@ public class ControllerPlayer : StatePlayer
         UpdateMovementState();
     }
 
+    private void StaminaCount(float currStamina)
+    {
+        _currStamina = currStamina;
+    }
+
     protected override void PlayerWalking()
     {
         base.PlayerWalking();
-        _movementPlayer.SetSpeed(_speed);
+        OnWalk?.Invoke(_statPlayer.WalkSpeed);
     }
 
     protected override void PlayerSprinting()
     {
         base.PlayerSprinting();
-        _movementPlayer.SetSpeed(_sprintSpeed);
+        OnSprint?.Invoke(_statPlayer.SprintSpeed, _statPlayer.SprintCost);
     }
 }

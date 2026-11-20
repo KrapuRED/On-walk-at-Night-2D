@@ -13,6 +13,7 @@ public enum PlayerState
 public class StatePlayer : MonoBehaviour
 {
     [SerializeField] protected PlayerState _currentState;
+    public event Action<PlayerState> OnStateChanged;
     public void ChangeState(PlayerState state)
     {
         if (_currentState == state)
@@ -20,6 +21,7 @@ public class StatePlayer : MonoBehaviour
             return;
         }
         _currentState = state;
+        OnStateChanged?.Invoke(_currentState);
         CheckState();
     }
 
