@@ -6,9 +6,12 @@ public class ThugScript : Enemy
 {
     [Header("Line Of Sight Setting")]
     [SerializeField] private float _sightRadius;
+    [SerializeField] private float _sightAngle = 45;
+    //[SerializeField] private float _rotationAngle = 45;
     [SerializeField] private Transform _enemyTransform;
     [SerializeField] private Transform _playerLocation;
     [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private bool _thugPatrol = false;
 
     [Header("Raycast LOS Setting")]
     [SerializeField] private int _rayCastCount = 16;
@@ -39,7 +42,7 @@ public class ThugScript : Enemy
 
     private void CastRays()
     {
-        float angleStep = 360f/ _rayCastCount;
+        float angleStep = _sightAngle / _rayCastCount;
         bool playerSpotted = false;
 
         for (int i = 0; i < _rayCastCount; i++)
@@ -89,7 +92,7 @@ public class ThugScript : Enemy
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(_enemyTransform.position, _sightRadius);
 
-        float angleStep = 360f / _rayCastCount;
+        float angleStep = _sightAngle / _rayCastCount;
 
         for (int i = 0; i < _rayCastCount; i++)
         {

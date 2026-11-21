@@ -22,7 +22,10 @@ public class Enemy : MonoBehaviour
         {
             _enemyMovement = GetComponent<MovementEnemy>();
         }
-        _enemyMovement.SetEnemySpeed(_enemySpeed);
+        if(_enemyMovement!= null)
+        {
+            _enemyMovement.SetEnemySpeed(_enemySpeed);
+        }
     }
     public void ChangeState(EnemyState state)
     {
