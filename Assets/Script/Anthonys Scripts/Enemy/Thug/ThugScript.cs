@@ -10,6 +10,10 @@ public class ThugScript : Enemy
     [SerializeField] private Transform _playerLocation;
     [SerializeField] private LayerMask _playerLayer;
 
+    [Header("Raycast LOS Setting")]
+    [SerializeField] private int _rayCastCount = 16;
+
+
     [Header("NavMesh Setting")]
     [SerializeField] private NavMeshAgent _agent;
 
@@ -17,19 +21,43 @@ public class ThugScript : Enemy
     {
         _enemyTransform = GetComponent<Transform>();
         _agent = GetComponent<NavMeshAgent>();
+        _playerLocation = GameObject.FindGameObjectWithTag("Player").transform;
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
     }
 
     private void Update()
     {
-        Collider2D player = Physics2D.OverlapCircle(_enemyTransform.position, _sightRadius, _playerLayer);
-        if(player != null)
+        CastRays();
+
+        if (currentState == EnemyState.Chasing)
         {
-            if (_playerLocation == null)
+            _agent.SetDestination(_playerLocation.position);
+        }
+
+    }
+
+    private void CastRays()
+    {
+        float angleStep = 360f/ _rayCastCount;
+        bool playerSpotted = false;
+
+        for (int i = 0; i < _rayCastCount; i++)
+        {
+            float angle = i * angleStep;
+
+            Vector2 dir = Quaternion.Euler(0, 0, angle) * Vector2.up;
+            RaycastHit2D hit = Physics2D.Raycast(_enemyTransform.position, dir, _sightRadius, _playerLayer);
+
+            if (hit.collider != null && hit.collider.CompareTag("Player"))
             {
-                _playerLocation = player.GetComponent<Transform>();
+                playerSpotted = true;
+                break;
             }
+        }
+
+        if (playerSpotted)
+        {
             ChangeState(EnemyState.Chasing);
         }
         else
@@ -37,12 +65,10 @@ public class ThugScript : Enemy
             ChangeState(EnemyState.Idle);
         }
 
-        if(currentState == EnemyState.Chasing)
-        {
-            _agent.SetDestination(_playerLocation.position);
-        }
-
     }
+
+
+
 
     protected override void EnemyIdle()
     {
@@ -59,5 +85,18 @@ public class ThugScript : Enemy
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(_enemyTransform.position, _sightRadius);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(_enemyTransform.position, _sightRadius);
+
+        float angleStep = 360f / _rayCastCount;
+
+        for (int i = 0; i < _rayCastCount; i++)
+        {
+            float angle = i * angleStep;
+            Vector2 direction = Quaternion.Euler(0, 0, angle) * Vector2.up;
+
+            Gizmos.DrawRay(transform.position, direction * _sightRadius);
+        }
     }
 }
