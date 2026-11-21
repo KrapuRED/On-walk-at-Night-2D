@@ -56,6 +56,7 @@ public class StalkerScript : Enemy
 
     private void CheckStalkerState()
     {
+        if(currentState == EnemyState.Idle) return;
         switch (currentStalkerState)
         {
             case StalkerState.FindPlayer:
