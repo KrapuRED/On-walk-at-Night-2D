@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MovementPlayer : MonoBehaviour
@@ -5,7 +6,9 @@ public class MovementPlayer : MonoBehaviour
     private float _currentSpeed;
     private Rigidbody2D _rb;
     private Vector2 _direction = Vector2.zero;
-    private bool _canMove = true;
+    private PlayerState _currentState;
+
+    public event Action OnMove;
 
     [SerializeField] private ControllerPlayer _controllerPlayer;
 
@@ -17,29 +20,38 @@ public class MovementPlayer : MonoBehaviour
     private void OnEnable()
     {
         _controllerPlayer.OnInitialize += Initialize;
-        _controllerPlayer.OnSprint += Sprint;
-        _controllerPlayer.OnWalk += Walk;
+        _controllerPlayer.OnSpeedChanged += SetSpeed;
+        _controllerPlayer.OnStateChanged += UpdatePlayerState;
     }
 
     private void OnDisable()
     {
         _controllerPlayer.OnInitialize -= Initialize;
-        _controllerPlayer.OnSprint -= Sprint;
-        _controllerPlayer.OnWalk -= Walk;
+        _controllerPlayer.OnSpeedChanged -= SetSpeed;
+        _controllerPlayer.OnStateChanged -= UpdatePlayerState;
     }
 
     private void FixedUpdate()
     {
-        if (!_canMove)
+        if (_currentState == PlayerState.Walking || _currentState == PlayerState.Sprinting)
         {
-            return;
+            _rb.linearVelocity = new Vector2(_direction.x * _currentSpeed, _direction.y * _currentSpeed);
+            OnMove?.Invoke();
         }
-        _rb.linearVelocity = new Vector2(_direction.x * _currentSpeed, _direction.y * _currentSpeed);
+        else
+        {
+            _rb.linearVelocity = Vector2.zero;
+        }
     }
 
     private void Initialize(StatPlayer statPlayer)
     {
         SetSpeed(statPlayer.WalkSpeed);
+    }
+
+    private void UpdatePlayerState(PlayerState currPlayerState)
+    {
+        _currentState = currPlayerState;
     }
 
     private void SetSpeed(float speed)
@@ -50,20 +62,6 @@ public class MovementPlayer : MonoBehaviour
     public void Movement(Vector2 direction)
     {
         _direction = direction;
-    }
-
-    public void SetCanMove(bool canMove)
-    {
-        _canMove = canMove;
-    }
-
-    private void Sprint(float speed, float notUsed)
-    {
-        SetSpeed(speed);
-    }
-
-    private void Walk(float speed)
-    {
-        SetSpeed(speed);
+        
     }
 }

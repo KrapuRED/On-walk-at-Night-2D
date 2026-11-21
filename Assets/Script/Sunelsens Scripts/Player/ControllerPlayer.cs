@@ -8,8 +8,8 @@ public class ControllerPlayer : StatePlayer
     private StaminaPlayer _staminaPlayer;
 
     public event Action<StatPlayer> OnInitialize;
-    public event Action<float> OnWalk;
-    public event Action<float, float> OnSprint;
+    public event Action<float> OnSpeedChanged;
+    public event Action<float> OnSprint;
 
     [SerializeField] private StatPlayer _statPlayer;
 
@@ -63,6 +63,11 @@ public class ControllerPlayer : StatePlayer
 
     private void UpdateMovementState()
     {
+        if (_currentState == PlayerState.Interacting)
+        {
+            return;
+        }
+
         if (_currentDirection == Vector2.zero)
         {
             ChangeState(PlayerState.Idle);
@@ -81,6 +86,10 @@ public class ControllerPlayer : StatePlayer
 
     private void Sprint(bool canSprint)
     {
+        if (_currentState == PlayerState.Dead)
+        {
+            return;
+        }
         _canSprint = canSprint;
         UpdateMovementState();
     }
@@ -93,12 +102,18 @@ public class ControllerPlayer : StatePlayer
     protected override void PlayerWalking()
     {
         base.PlayerWalking();
-        OnWalk?.Invoke(_statPlayer.WalkSpeed);
+        OnSpeedChanged?.Invoke(_statPlayer.WalkSpeed);
     }
 
     protected override void PlayerSprinting()
     {
         base.PlayerSprinting();
-        OnSprint?.Invoke(_statPlayer.SprintSpeed, _statPlayer.SprintCost);
+        OnSpeedChanged?.Invoke(_statPlayer.SprintSpeed);
+        OnSprint?.Invoke(_statPlayer.SprintCost);
+    }
+
+    protected override void PlayerInteracting()
+    {
+        base.PlayerInteracting();
     }
 }

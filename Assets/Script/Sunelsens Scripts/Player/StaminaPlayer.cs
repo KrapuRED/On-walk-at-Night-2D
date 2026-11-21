@@ -39,7 +39,7 @@ public class StaminaPlayer : MonoBehaviour
         _regenWaitTime = statPlayer.StaminaRegenWaitTime;
     }
 
-    private void SetDrainStamina(float notUsed, float drainRate)
+    private void SetDrainStamina(float drainRate)
     {
         _currentDrainRate = drainRate;
     }

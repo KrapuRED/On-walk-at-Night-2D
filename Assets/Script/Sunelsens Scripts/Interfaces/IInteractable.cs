@@ -2,6 +2,10 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    void Interact();
-    bool CanInteract { get; set;}
+    public void Interact();
+    public bool CanInteract();
+    public void OnFocus();
+    public void OffFocus();
+    public void UpdateNotification(float currentInteractTime);
+    public float InteractTime { get;}
 }
