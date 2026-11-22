@@ -38,11 +38,13 @@ public class UIManager : MonoBehaviour
 
     private void ShowVictoryUI()
     {
+        Time.timeScale = 0f;
         OpenPanel(_victoryCanvasGroup);
     }
 
     private void ShowDefeatUI()
     {
+        Time.timeScale = 0f;
         OpenPanel(_defeatCanvasGroup);
     }
 

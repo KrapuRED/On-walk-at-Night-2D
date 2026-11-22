@@ -42,6 +42,17 @@ public class ButtonManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void BackToMainMenu()
+    {
+        Time.timeScale = 1f;
+        TransitionManager.Instance.LoadScene("MainMenu");
+    }
+
+    public void Retry()
+    {
+        TransitionManager.Instance.LoadScene("SceneSunelsen");
+    }
+
     public void OpenCloseMainMenuSettings()
     {
         //PlayButtonSFX();
@@ -60,7 +71,8 @@ public class ButtonManager : MonoBehaviour
     public void OpenClosePause()
     {
         //PlayButtonSFX();
-        if (_pausePanel.alpha == 1f)
+        Debug.Log("vhat");
+        if (_pausePanel.alpha == 1f || _settingPausePanel.alpha == 1f)
         {
             Time.timeScale = 1f;
             ClosePanel(_settingPausePanel);

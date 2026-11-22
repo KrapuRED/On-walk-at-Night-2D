@@ -18,6 +18,7 @@ public class InputPlayer : MonoBehaviour
     {
         if (ctx.started)
         {
+            Debug.Log("Paused");
             OnPauseInput?.Invoke();
         }
     }
