@@ -195,10 +195,12 @@ public class ThugScript : Enemy
 
 
     // =================================== SOUND EVENT ===========================================
-    protected void EnemyCheckSourceSound()
+    protected void EnemyCheckSourceSound(Vector2 locSound)
     {
         _checkingSound = true;
+        _sourceSoundLocation = locSound;
     }
+
     protected void EnemyDoneCheckingSourceSound()
     {
         _checkingSound = false;
