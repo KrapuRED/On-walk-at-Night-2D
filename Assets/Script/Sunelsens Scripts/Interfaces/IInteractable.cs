@@ -6,6 +6,7 @@ public interface IInteractable
     public bool CanInteract();
     public void OnFocus();
     public void OffFocus();
+    //public void SendSound();
     public void UpdateNotification(float currentInteractTime);
-    public float InteractTime { get;}
+    public float InteractTime { get; }
 }

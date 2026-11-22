@@ -84,6 +84,11 @@ public class ControllerPlayer : StatePlayer
         }
     }
 
+    public PlayerState GetCurrentState()
+    {
+        return _currentState;
+    }
+
     private void Sprint(bool canSprint)
     {
         if (_currentState == PlayerState.Dead)

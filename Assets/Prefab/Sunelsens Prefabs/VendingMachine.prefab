@@ -378,10 +378,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a125b98fb3dfb4cb0005c16e556bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VendingMachine
-  _knockedDownSprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   _canvasGroup: {fileID: 9062269581534863832}
   _interactTime: 3
   _notificationImage: {fileID: 2283966437742940983}
+  _soundRadius: 10
+  _knockedDownSprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
 --- !u!61 &1964963149732574371
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine;
 public class InteractPlayer : MonoBehaviour
 {
     [SerializeField] private InputPlayer _inputPlayer;
-    [SerializeField] private MovementPlayer _movementPlayer;
+    //[SerializeField] private MovementPlayer _movementPlayer;
     [SerializeField] private ControllerPlayer _controllerPlayer;
     private List<Collider2D> _nearColliders = new();
     private IInteractable _currentInteractable = null;
@@ -16,17 +16,18 @@ public class InteractPlayer : MonoBehaviour
     private void OnEnable()
     {
         _inputPlayer.OnInteractInput += UpdateInteractState;
-        _movementPlayer.OnMove += CalculateClosest;
+        //_movementPlayer.OnMove += CalculateClosest;
     }
 
     private void OnDisable()
     {
         _inputPlayer.OnInteractInput -= UpdateInteractState;
-        _movementPlayer.OnMove -= CalculateClosest;
+        //_movementPlayer.OnMove -= CalculateClosest;
     }
 
     private void Update()
     {
+        CalculateClosest();
         if (_isInteracting && _currentInteractable != null)
         {
             _currentInteractTimer += Time.deltaTime;
@@ -35,8 +36,9 @@ public class InteractPlayer : MonoBehaviour
             {
                 _currentInteractable.Interact();
                 _currentInteractable.OffFocus();
-                _currentInteractable = null;
                 UpdateInteractState(false);
+                _currentInteractable = null;
+                
             }
         }  
     }
@@ -58,7 +60,10 @@ public class InteractPlayer : MonoBehaviour
 
     private void CalculateClosest()
     {
-        Debug.Log("Calculate Closest");
+        if (_currentInteractable != null && _controllerPlayer.GetCurrentState() == PlayerState.Interacting)
+        {
+            return;
+        }
         IInteractable closestInteractable = null;
         float closestDistance = float.MaxValue;
 
