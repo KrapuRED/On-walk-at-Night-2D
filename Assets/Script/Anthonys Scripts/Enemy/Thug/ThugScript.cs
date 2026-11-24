@@ -48,26 +48,21 @@ public class ThugScript : Enemy
     {
         CastRays();
 
-        if (_checkingSound)
+        if(currentState == EnemyState.Chasing)
         {
-            Vector2 dir = _agent.velocity.normalized;
-
             StopPatrol();
+            _checkingSound = false;
 
-            float targetAngle = Vector2.SignedAngle(Vector2.up, dir);
+            Vector2 directionToPlayer = (_playerLocation.position - _enemyTransform.position).normalized;
+            float targetAngle = Vector2.SignedAngle(Vector2.up, directionToPlayer);
             _rotationAngle = Mathf.MoveTowardsAngle(_rotationAngle, targetAngle, _rotationSpeed * Time.deltaTime);
-            _agent.SetDestination(_sourceSoundLocation);
-
-            if(Vector2.Distance(_sourceSoundLocation, _enemyTransform.position) < 0.5f)
-            {
-                EnemyDoneCheckingSourceSound();
-            }
-
-            return;
+            _agent.SetDestination(_playerLocation.position);
         }
-
-        if (currentState == EnemyState.Idle)
+        else
         {
+
+            // ===== For Rotation When Idle ======
+
             if (_thugPatrol)
             {
                 if (_patrolCoroutine == null)
@@ -79,16 +74,26 @@ public class ThugScript : Enemy
             {
                 StopPatrol();
             }
-        }
-        else
-        {
-            StopPatrol();
-            Vector2 directionToPlayer = (_playerLocation.position - _enemyTransform.position).normalized;
-            float targetAngle = Vector2.SignedAngle(Vector2.up, directionToPlayer);
 
-            _rotationAngle = Mathf.MoveTowardsAngle(_rotationAngle, targetAngle, _rotationSpeed * Time.deltaTime);
+            // ===== For Check Sound Event ======
 
-            _agent.SetDestination(_playerLocation.position);
+            if (_checkingSound)
+            {
+                Vector2 dir = _agent.velocity.normalized;
+                _agent.isStopped = false;
+                StopPatrol();
+
+                float targetAngle = Vector2.SignedAngle(Vector2.up, dir);
+                _rotationAngle = Mathf.MoveTowardsAngle(_rotationAngle, targetAngle, _rotationSpeed * Time.deltaTime);
+                _agent.SetDestination(_sourceSoundLocation);
+
+                if (Vector2.Distance(_sourceSoundLocation, _enemyTransform.position) < 0.5f)
+                {
+                    EnemyDoneCheckingSourceSound();
+                }
+
+                return;
+            }
         }
 
     }
