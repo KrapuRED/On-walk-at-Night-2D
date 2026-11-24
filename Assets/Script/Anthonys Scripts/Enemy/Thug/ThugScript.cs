@@ -30,7 +30,7 @@ public class ThugScript : Enemy
 
     [Header("Event Setting")]
     [SerializeField] private bool _checkingSound = false;
-    [SerializeField] private Transform _sourceSoundLocation;
+    [SerializeField] private Vector2 _sourceSoundLocation;
 
     [Header("NavMesh Setting")]
     [SerializeField] private NavMeshAgent _agent;
@@ -56,9 +56,9 @@ public class ThugScript : Enemy
 
             float targetAngle = Vector2.SignedAngle(Vector2.up, dir);
             _rotationAngle = Mathf.MoveTowardsAngle(_rotationAngle, targetAngle, _rotationSpeed * Time.deltaTime);
-            _agent.SetDestination(_sourceSoundLocation.position);
+            _agent.SetDestination(_sourceSoundLocation);
 
-            if(Vector2.Distance(_sourceSoundLocation.position, _enemyTransform.position) < 0.5f)
+            if(Vector2.Distance(_sourceSoundLocation, _enemyTransform.position) < 0.5f)
             {
                 EnemyDoneCheckingSourceSound();
             }
