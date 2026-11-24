@@ -4065,6 +4065,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 600957055}
     - target: {fileID: 2977107232246824624, guid: 7400e40fa74cabc47bb2a4b2e1ea3c9e, type: 3}
+      propertyPath: MainLevelName
+      value: Level_Test_Shared
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977107232246824624, guid: 7400e40fa74cabc47bb2a4b2e1ea3c9e, type: 3}
       propertyPath: _settingPanel
       value: 
       objectReference: {fileID: 605896682}

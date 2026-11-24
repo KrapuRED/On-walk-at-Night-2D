@@ -1062,6 +1062,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1961198986}
     - target: {fileID: 2977107232246824624, guid: 7400e40fa74cabc47bb2a4b2e1ea3c9e, type: 3}
+      propertyPath: MainLevelName
+      value: Level_Test_Shared
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977107232246824624, guid: 7400e40fa74cabc47bb2a4b2e1ea3c9e, type: 3}
       propertyPath: _settingPausePanel
       value: 
       objectReference: {fileID: 1800284691}
@@ -2027,7 +2031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1540748841292560939, guid: c663eb59740422243a86d424b02bc6fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.56
+      value: -15.05
       objectReference: {fileID: 0}
     - target: {fileID: 1540748841292560939, guid: c663eb59740422243a86d424b02bc6fc, type: 3}
       propertyPath: m_LocalPosition.y

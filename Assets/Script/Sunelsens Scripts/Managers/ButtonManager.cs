@@ -13,6 +13,7 @@ public class ButtonManager : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField] private InputPlayer _inputPlayer;
+    [SerializeField] private string MainLevelName;
 
     private void OnEnable()
     {
@@ -37,7 +38,7 @@ public class ButtonManager : MonoBehaviour
 
     public void PlayGame()
     {
-        TransitionManager.Instance.LoadScene("SceneSunelsen");
+        TransitionManager.Instance.LoadScene(MainLevelName);
     }
 
     public void ExitGame()
@@ -54,7 +55,8 @@ public class ButtonManager : MonoBehaviour
 
     public void Retry()
     {
-        TransitionManager.Instance.LoadScene("SceneSunelsen");
+        Debug.Log("Retry Scene");
+        TransitionManager.Instance.LoadScene(MainLevelName);
     }
 
     public void OpenCloseMainMenuSettings()

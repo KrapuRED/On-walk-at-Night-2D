@@ -34,10 +34,11 @@ public class TransitionManager : MonoBehaviour
 
             //animator.SetTrigger("FadeIn");
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSecondsRealtime(1f);
             SceneManager.LoadScene(sceneName);
             //animator.SetTrigger("FadeOut");
             isTransitioning = false;
+            Time.timeScale = 1f;
         }
 
     }
