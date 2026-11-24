@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicPathFinding : MonoBehaviour
+public class WaypointMoverEnemy : MonoBehaviour
 {
     [SerializeField] private Transform waypointParent;
-    [SerializeField] private float movementSpeed;
     [SerializeField] private float checkChangeDirction = 0.5f;
     [SerializeField] private bool isLooping;
 
@@ -14,27 +13,25 @@ public class BasicPathFinding : MonoBehaviour
     private Rigidbody2D rb;
 
 
-    private void Start()
+    private void Awake()
     {
-        waypoints = new Transform[waypointParent.childCount];
-        for(int i = 0; i < waypointParent.childCount; i++)
-        {
-            waypoints[i] = waypointParent.GetChild(i);
-        }
         rb = GetComponent<Rigidbody2D>();
+
+        if (waypointParent != null)
+        {
+            waypoints = new Transform[waypointParent.childCount];
+            for (int i = 0; i < waypointParent.childCount; i++)
+            {
+                waypoints[i] = waypointParent.GetChild(i);
+            }
+        }
     }
 
-    public void EnemySpeedSetUp(float speed)
-    {
-        movementSpeed = speed;
-    }
-
-    public void MoveTowardWayPoint()
+    public Vector2 MoveTowardWayPoint()
     {
         Transform target = waypoints[currentIndex];
 
         Vector2 dir = ((Vector2)target.position - rb.position).normalized;
-        rb.linearVelocity = dir * movementSpeed;
 
         if (Vector2.Distance(rb.position, target.position) <= checkChangeDirction)
         {
@@ -52,8 +49,9 @@ public class BasicPathFinding : MonoBehaviour
                     currentIndex = 1;
                 }
             }
-
-
         }
+
+        return dir;
+
     }
 }

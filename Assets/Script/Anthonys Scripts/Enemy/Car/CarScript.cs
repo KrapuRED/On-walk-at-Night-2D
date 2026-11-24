@@ -2,24 +2,31 @@ using UnityEngine;
 
 public class CarScript : Enemy
 {
-    [SerializeField] private BasicPathFinding pathFinding;
-    [SerializeField] private float enemySpeed = 5f;
+    [SerializeField] private WaypointMoverEnemy _waypointMoverEnemy;
 
     private void Start()
     {
-        pathFinding.EnemySpeedSetUp(enemySpeed);
+        if (_waypointMoverEnemy == null)
+        {
+            _waypointMoverEnemy = GetComponent<WaypointMoverEnemy>();
+        }
+        ChangeState(EnemyState.Chasing);
     }
-    private void FixedUpdate()
+    protected override void EnemyChasing()
     {
-        pathFinding.MoveTowardWayPoint();
+        _enemyMovement.SetEnemySpeed(_enemySpeed);
     }
-
-
-
-
     protected override void EnemyHitPlayer()
     {
         base.EnemyHitPlayer();
         Debug.Log("mOBIL");
+    }
+
+    private void FixedUpdate()
+    {
+        if(currentState == EnemyState.Chasing)
+        {
+            _enemyMovement.SetDirection(_waypointMoverEnemy.MoveTowardWayPoint());
+        }
     }
 }
