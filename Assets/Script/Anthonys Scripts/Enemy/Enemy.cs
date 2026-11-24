@@ -71,5 +71,6 @@ public class Enemy : MonoBehaviour
     protected virtual void EnemyHitPlayer()
     {
         Debug.Log("Player Kena Hit");
+        GameManager.Instance.Defeat();
     }
 }
