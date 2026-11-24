@@ -392,9 +392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5ea8dd1399a354f82fb9f65bbbc0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HomeMark
-  _canvasGroup: {fileID: 0}
-  _interactTime: 0
-  _notificationImage: {fileID: 0}
+  _canvasGroup: {fileID: 2084726840910596365}
+  _interactTime: 3
+  _notificationImage: {fileID: 8054997504971172541}
   _soundRadius: 0
 --- !u!1 &6138383154597750149
 GameObject:

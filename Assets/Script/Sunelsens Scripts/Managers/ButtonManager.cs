@@ -20,6 +20,10 @@ public class ButtonManager : MonoBehaviour
         {
             _inputPlayer.OnPauseInput += OpenClosePause;
         }
+        else
+        {
+            Debug.Log("Input player is null");
+        }
         
     }
 
