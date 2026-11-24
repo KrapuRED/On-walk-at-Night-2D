@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5880310836837807524}
   - component: {fileID: 4438230377537863379}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,9 +107,9 @@ GameObject:
   - component: {fileID: 7978982883182728572}
   - component: {fileID: 1778042409752129358}
   - component: {fileID: 144780632557442238}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,6 +392,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 19c9cdfa-ff08-4154-a5b4-2f46032e1bd3
+    m_ActionName: 'Player/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -408,7 +412,7 @@ GameObject:
   - component: {fileID: 3993528631156749945}
   - component: {fileID: 5369273172721360658}
   - component: {fileID: 3169426536839330652}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: InteractionDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,5 +483,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractPlayer
   _inputPlayer: {fileID: 4832261942714090870}
-  _movementPlayer: {fileID: 3164561134446415531}
   _controllerPlayer: {fileID: 1778042409752129358}

@@ -69,7 +69,6 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
         {
             _isInteracting = true;
         }
-        Debug.Log($"Interact Time = {currentInteractTime}");
         _notificationImage.fillAmount = Mathf.Clamp01(currentInteractTime / _interactTime);
     }
 
@@ -80,10 +79,10 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
         foreach (Collider2D col in _soundRaycast)
         {
-            col.TryGetComponent<Enemy>(out Enemy enemy);
-            if (enemy != null)
+            col.TryGetComponent<ThugScript>(out ThugScript thug);
+            if (thug != null)
             {
-                //enemy.EnemyCheckSourceSound(transform.position);
+                thug.EnemyCheckSourceSound(transform.position);
             }
         }
     }
