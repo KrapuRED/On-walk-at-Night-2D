@@ -5,6 +5,7 @@ public class MovementEnemy : MonoBehaviour
     [SerializeField] private float movementSpeed;
     private Rigidbody2D rb;
     private Vector2 _direction;
+    public Vector2 Direction => _direction;
 
 
     private void Start()

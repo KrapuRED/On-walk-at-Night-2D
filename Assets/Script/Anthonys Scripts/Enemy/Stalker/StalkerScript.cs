@@ -218,10 +218,12 @@ public class StalkerScript : Enemy
         base.EnemyIdle();
         _agent.isStopped = true;
         _agent.velocity = Vector3.zero;
+        _animator.SetBool("Chasing", false);
     }
     protected override void EnemyChasing()
     {
         _agent.isStopped = false;
+        _animator.SetBool("Chasing", true);
     }
 
 }
