@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider _staminaBar;
     [SerializeField] private CanvasGroup _victoryCanvasGroup;
     [SerializeField] private CanvasGroup _defeatCanvasGroup;
+    [SerializeField] private TMP_Text _scoreText;
+    [SerializeField] private TMP_Text _endScoreText;
 
     private void OnEnable()
     {
@@ -15,6 +18,7 @@ public class UIManager : MonoBehaviour
         _staminaPlayer.OnStaminaChanged += UpdateStaminaUI;
         GameManager.Instance.OnVictory += ShowVictoryUI;
         GameManager.Instance.OnDefeat += ShowDefeatUI;
+        ScoreManager.Instance.OnScoreChange += UpdateScoreUI;
     }
 
     private void OnDisable()
@@ -34,6 +38,12 @@ public class UIManager : MonoBehaviour
     private void UpdateStaminaUI(float currStamina)
     {
         _staminaBar.value = currStamina;
+    }
+
+    private void UpdateScoreUI(float currScore)
+    {
+        _scoreText.text = string.Format("{0:0000}", currScore);
+        _endScoreText.text = string.Format("RAM Collected {0:00000} GB!", currScore);
     }
 
     private void ShowVictoryUI()
