@@ -545,30 +545,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2135933878}
-    - target: {fileID: 496273964291163740, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496273964291163740, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496273964291163740, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496273964291163740, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1114265871779553580, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1910586089}
-    - target: {fileID: 1114265871779553580, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Retry
-      objectReference: {fileID: 0}
     - target: {fileID: 2302839985233937567, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -649,46 +629,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3750172276722295327, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3750172276722295327, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3750172276722295327, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3750172276722295327, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917764460963466817, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917764460963466817, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917764460963466817, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917764460963466817, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5075419819873670827, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1910586089}
-    - target: {fileID: 5075419819873670827, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToMainMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 8093497119893598534, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
       propertyPath: m_Name
       value: DefeatCanvas
@@ -962,22 +906,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VictoryCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2674796994388801413, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2674796994388801413, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2674796994388801413, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2674796994388801413, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4553001679270656415, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
       propertyPath: m_Camera
       value: 
@@ -986,26 +914,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1910586089}
-    - target: {fileID: 7499772173422195337, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToMainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 8969863123974558454, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8969863123974558454, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8969863123974558454, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8969863123974558454, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9087414287279540926, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1791,10 +1699,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1910586089}
-    - target: {fileID: 770709576769342850, guid: 9fbee2df02491e24b87590cdd273bc72, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenClosePauseSetting
-      objectReference: {fileID: 0}
     - target: {fileID: 891779566090456691, guid: 9fbee2df02491e24b87590cdd273bc72, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1899,18 +1803,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1910586089}
-    - target: {fileID: 2179482682124568010, guid: 9fbee2df02491e24b87590cdd273bc72, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenClosePauseSetting
-      objectReference: {fileID: 0}
     - target: {fileID: 2491956345052877848, guid: 9fbee2df02491e24b87590cdd273bc72, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1910586089}
-    - target: {fileID: 2491956345052877848, guid: 9fbee2df02491e24b87590cdd273bc72, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToMainMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 2537260522371973547, guid: 9fbee2df02491e24b87590cdd273bc72, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1943,10 +1839,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1910586089}
-    - target: {fileID: 3870254237186708285, guid: 9fbee2df02491e24b87590cdd273bc72, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenClosePause
-      objectReference: {fileID: 0}
     - target: {fileID: 4083882932607662703, guid: 9fbee2df02491e24b87590cdd273bc72, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

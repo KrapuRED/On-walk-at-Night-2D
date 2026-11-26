@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,7 @@ public class TransitionManager : MonoBehaviour
 {
     public static TransitionManager Instance;
     private bool isTransitioning = false;
+    public event Action<string> OnSceneChanged;
 
     private void Awake()
     {
@@ -36,6 +38,7 @@ public class TransitionManager : MonoBehaviour
 
             yield return new WaitForSecondsRealtime(1f);
             SceneManager.LoadScene(sceneName);
+            OnSceneChanged?.Invoke(sceneName);
             //animator.SetTrigger("FadeOut");
             isTransitioning = false;
             Time.timeScale = 1f;

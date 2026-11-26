@@ -44,3 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf088bcdd5b92134e8040d18360e0086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonManager
+  _mainMenuPanel: {fileID: 0}
+  _settingPanel: {fileID: 0}
+  _creditPanel: {fileID: 0}
+  _pausePanel: {fileID: 0}
+  _settingPausePanel: {fileID: 0}
+  _inputPlayer: {fileID: 0}
+  Level1Name: Main_Level_1
+  Level2Name: Main_Level_2
+  Level3Name: Main_Level_3
