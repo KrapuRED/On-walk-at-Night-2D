@@ -273,8 +273,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicPathFinding
   waypointParent: {fileID: 6801931363628424881}
-  checkChangeDirction: 0.5
+  checkChangeDirection: 0.5
   isLooping: 1
+  _delayToNextCheckPoint: 0.4
 --- !u!50 &7911177114826075267
 Rigidbody2D:
   serializedVersion: 5
