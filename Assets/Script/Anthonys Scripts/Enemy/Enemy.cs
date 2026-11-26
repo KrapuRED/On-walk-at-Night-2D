@@ -18,27 +18,26 @@ public class Enemy : MonoBehaviour
 
     [Header("Sprite")]
     [SerializeField] protected SpriteRenderer _enemySpriteRenderer;
-    bool _startFlip;
+    protected bool _startFlip;
 
     [Header("Animator")]
     [SerializeField] protected Animator _animator;
 
-    private void Awake()
+
+    protected virtual void Start()
     {
         _startFlip = _enemySpriteRenderer.flipX;
-    }
-
-    private void Start()
-    {
-        if(_enemyMovement == null)
+        if (_enemyMovement == null)
         {
             _enemyMovement = GetComponent<MovementEnemy>();
         }
-        if(_enemyMovement!= null)
+
+        if (_enemyMovement != null)
         {
             _enemyMovement.SetEnemySpeed(_enemySpeed);
-        }        
+        }
     }
+
     public void ChangeState(EnemyState state)
     {
         if(currentState == state) return;
@@ -69,13 +68,13 @@ public class Enemy : MonoBehaviour
 
 
 
-    private void Update()
+    protected virtual void Update()
     {
-        if ((_enemyMovement.Direction.x < 0))
+        if (_enemyMovement != null && (_enemyMovement.Direction.x < 0))
         {
             _enemySpriteRenderer.flipX = !_startFlip;
         }
-        else
+        else if(_enemyMovement != null)
         {
             _enemySpriteRenderer.flipX = _startFlip;
         }

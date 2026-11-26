@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5383026060972389873}
   - component: {fileID: 12604223553661168}
+  - component: {fileID: 1595786462669221762}
   - component: {fileID: 1944515410482361618}
   - component: {fileID: 8711086096083405602}
   - component: {fileID: 6093985156322949843}
@@ -82,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ThugScript
   currentState: 0
-  _enemyMovement: {fileID: 0}
+  _enemyMovement: {fileID: 1595786462669221762}
   _enemySpeed: 5
   _enemySpriteRenderer: {fileID: 6335591441799505005}
   _animator: {fileID: 6049878769524738637}
@@ -102,8 +103,21 @@ MonoBehaviour:
   _patrolWaitTime: 1
   _rayCastCount: 5
   _checkingSound: 0
-  _sourceSoundLocation: {x: 0, y: 0}
   _agent: {fileID: 6093985156322949843}
+  _targetLocation: {x: 0, y: 0}
+--- !u!114 &1595786462669221762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670356752517366767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92788107a9503e14bb160583943828cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovementEnemy
+  movementSpeed: 0
 --- !u!50 &1944515410482361618
 Rigidbody2D:
   serializedVersion: 5
@@ -224,7 +238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4201903668618512684}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -291,6 +305,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5383026060972389873}
     m_Modifications:
+    - target: {fileID: 2229375280910492253, guid: 2c18fe62de19cd14688df2bdb4df3515, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2229375280910492253, guid: 2c18fe62de19cd14688df2bdb4df3515, type: 3}
       propertyPath: m_SortingLayer
       value: 4

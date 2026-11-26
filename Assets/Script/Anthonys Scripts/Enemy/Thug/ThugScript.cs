@@ -1,8 +1,16 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal;
+
+
+[System.Serializable]
+public enum ThugState
+{
+    GoToSound,
+    ChasingPlayer
+}
+
 
 public class ThugScript : Enemy
 {
@@ -30,37 +38,57 @@ public class ThugScript : Enemy
 
     [Header("Event Setting")]
     [SerializeField] private bool _checkingSound = false;
-    [SerializeField] private Vector2 _sourceSoundLocation;
 
     [Header("NavMesh Setting")]
     [SerializeField] private NavMeshAgent _agent;
 
-    private void Start()
+    [Header("Direction")]
+    [SerializeField] private Vector2 _targetLocation;
+
+
+    protected override void Start()
     {
+        base.Start();
         _enemyTransform = GetComponent<Transform>();
         _agent = GetComponent<NavMeshAgent>();
         _playerLocation = GameObject.FindGameObjectWithTag("Player").transform;
+        _agent.updatePosition = false;
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
     }
 
-    private void Update()
+    protected override void Update()
     {
         CastRays();
+        SpriteRotationUpdate();
 
-        if(currentState == EnemyState.Chasing)
+        if (currentState == EnemyState.Chasing)
         {
             StopPatrol();
-            _checkingSound = false;
 
-            Vector2 directionToPlayer = (_playerLocation.position - _enemyTransform.position).normalized;
+            Vector2 directionToPlayer = (_targetLocation - (Vector2)_enemyTransform.position).normalized;
             float targetAngle = Vector2.SignedAngle(Vector2.up, directionToPlayer);
             _rotationAngle = Mathf.MoveTowardsAngle(_rotationAngle, targetAngle, _rotationSpeed * Time.deltaTime);
-            _agent.SetDestination(_playerLocation.position);
+            _agent.SetDestination(_targetLocation);
+            _enemyMovement.SetDirection(_agent.desiredVelocity);
+            _agent.nextPosition = _enemyTransform.position;
+            // ===== For Check Sound Event ======
+
+            if (_checkingSound)
+            {
+                if (Vector2.Distance(_targetLocation, _enemyTransform.position) < 0.5f)
+                {
+                    EnemyDoneCheckingSourceSound();
+                }
+
+                return;
+            }
+
+
         }
         else
         {
-
+            _agent.nextPosition = _enemyTransform.position;
             // ===== For Rotation When Idle ======
 
             if (_thugPatrol)
@@ -75,29 +103,12 @@ public class ThugScript : Enemy
                 StopPatrol();
             }
 
-            // ===== For Check Sound Event ======
-
-            if (_checkingSound)
-            {
-                Vector2 dir = _agent.velocity.normalized;
-                _agent.isStopped = false;
-                StopPatrol();
-
-                float targetAngle = Vector2.SignedAngle(Vector2.up, dir);
-                _rotationAngle = Mathf.MoveTowardsAngle(_rotationAngle, targetAngle, _rotationSpeed * Time.deltaTime);
-                _agent.SetDestination(_sourceSoundLocation);
-
-                if (Vector2.Distance(_sourceSoundLocation, _enemyTransform.position) < 0.5f)
-                {
-                    EnemyDoneCheckingSourceSound();
-                }
-
-                return;
-            }
         }
 
     }
 
+
+    // =================================== PATROLLING LEFT RIGHT ===========================================
 
     private IEnumerator RotationPatrolCoroutine()
     {
@@ -135,6 +146,8 @@ public class ThugScript : Enemy
         }
     }
 
+
+    // =================================== RAYCAST ===========================================
     private void CastRays()
     {
         bool playerSpotted = false;
@@ -178,14 +191,17 @@ public class ThugScript : Enemy
         if (playerSpotted)
         {
             ChangeState(EnemyState.Chasing);
+            _checkingSound = false;
+            _targetLocation = _playerLocation.position;
         }
-        else
+        else if(!playerSpotted && !_checkingSound)
         {
             ChangeState(EnemyState.Idle);
         }
 
     }
 
+    
 
     private bool CheckRay(Vector2 direction)
     {
@@ -203,26 +219,54 @@ public class ThugScript : Enemy
     public void EnemyCheckSourceSound(Vector2 locSound)
     {
         _checkingSound = true;
-        _sourceSoundLocation = locSound;
+        ChangeState(EnemyState.Chasing);
+        _targetLocation = locSound;
     }
 
     protected void EnemyDoneCheckingSourceSound()
     {
         _checkingSound = false;
+        ChangeState(EnemyState.Idle);
     }
 
+
+
+    // =================================== STATE ===========================================
     protected override void EnemyIdle()
     {
         base.EnemyIdle();
-        _agent.isStopped = true;
-        _agent.velocity = Vector3.zero;
+        _enemyMovement.SetDirection(Vector3.zero);
+        _animator.SetBool("Chasing", false);
     }
     protected override void EnemyChasing()
     {
-        _agent.isStopped = false;
         StopCoroutine(RotationPatrolCoroutine());
         _patrolCoroutine = null;
+        _animator.SetBool("Chasing", true);
+
+        if(AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.ThugAlerted_SFX);
+        }
     }
+
+
+    public void SpriteRotationUpdate()
+    {
+        if (_enemySpriteRenderer == null) return;
+
+        Vector2 lookDir = Quaternion.Euler(0, 0, _rotationAngle) * Vector2.up;
+        if (lookDir.x < -0.01f)
+        {
+            _enemySpriteRenderer.flipX = !_startFlip;
+        }
+        else if (lookDir.x > 0.01f)
+        {
+            _enemySpriteRenderer.flipX = _startFlip;
+        }
+    }
+
+
 
     private void OnDrawGizmos()
     {
