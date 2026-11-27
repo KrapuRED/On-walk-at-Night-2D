@@ -7,8 +7,7 @@ public class TargetIndicator : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private RectTransform _pointerRect;
     [SerializeField] private float _padding;
-    [SerializeField] private Sprite _arrowSprite;
-    [SerializeField] private Sprite _objectSprite;
+    [SerializeField] private Image _arrowImage;
     private Image _spriteRenderer;
 
     private void Awake()
@@ -26,7 +25,7 @@ public class TargetIndicator : MonoBehaviour
 
         if (targetIsOffScreen)
         {
-            _spriteRenderer.sprite = _arrowSprite;
+            SetTransparant(false);
             SetPointerRotation();
             Vector2 cappedTargetPosition = targetPositionScreenPoint;
 
@@ -39,7 +38,7 @@ public class TargetIndicator : MonoBehaviour
         else
         {
             _pointerRect.transform.rotation = Quaternion.Euler(0, 0, 0);
-            _spriteRenderer.sprite = _objectSprite;
+            SetTransparant(true);
             Vector2 pointerWorldPosition = Camera.main.ScreenToWorldPoint(targetPositionScreenPoint);
             _pointerRect.position = pointerWorldPosition;
         }
@@ -50,6 +49,22 @@ public class TargetIndicator : MonoBehaviour
         Vector2 direction = _target.position - _player.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        _pointerRect.transform.rotation = Quaternion.Euler(0, 0, angle);
+        _pointerRect.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+    }
+
+    private void SetTransparant(bool setTransparant)
+    {
+        Color color = _arrowImage.color;
+        
+        if (setTransparant)
+        {
+            color.a = 0f;
+            _arrowImage.color = color;
+        }
+        else
+        {
+            color.a = 1f;
+            _arrowImage.color = color;
+        }
     }
 }
