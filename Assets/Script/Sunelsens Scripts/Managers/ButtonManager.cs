@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -13,7 +14,11 @@ public class ButtonManager : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField] private InputPlayer _inputPlayer;
-    [SerializeField] private string MainLevelName;
+
+    [Header("Level Name")]
+    [SerializeField] private string Level1Name;
+    [SerializeField] private string Level2Name;
+    [SerializeField] private string Level3Name;
 
     private void OnEnable()
     {
@@ -38,7 +43,22 @@ public class ButtonManager : MonoBehaviour
 
     public void PlayGame()
     {
-        TransitionManager.Instance.LoadScene(MainLevelName);
+        TransitionManager.Instance.LoadScene("LevelSelectScene");
+    }
+
+    public void LoadLevel1()
+    {
+        TransitionManager.Instance.LoadScene(Level1Name);
+    }
+
+    public void LoadLevel2()
+    {
+        TransitionManager.Instance.LoadScene(Level2Name);
+    }
+
+    public void LoadLevel3()
+    {
+        TransitionManager.Instance.LoadScene(Level3Name);
     }
 
     public void ExitGame()
@@ -53,10 +73,16 @@ public class ButtonManager : MonoBehaviour
         TransitionManager.Instance.LoadScene("MainMenu");
     }
 
+    public void BackToLevelSelect()
+    {
+        Time.timeScale = 1f;
+        TransitionManager.Instance.LoadScene("LevelSelectScene");
+    }
+
     public void Retry()
     {
         Debug.Log("Retry Scene");
-        TransitionManager.Instance.LoadScene(MainLevelName);
+        TransitionManager.Instance.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void OpenCloseMainMenuSettings()
