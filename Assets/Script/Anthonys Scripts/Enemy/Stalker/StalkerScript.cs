@@ -5,7 +5,6 @@ using UnityEngine.AI;
 [System.Serializable]
 public enum StalkerState
 {
-    FindPlayer,
     FlankingPlayer,
     ChasingPlayer
 }
@@ -55,17 +54,6 @@ public class StalkerScript : Enemy
     {
         if (currentStalkerState == state) return;
         currentStalkerState = state;
-        CheckStalkerState();
-    }
-
-    private void CheckStalkerState()
-    {
-        if(currentState == EnemyState.Idle) return;
-        switch (currentStalkerState)
-        {
-            case StalkerState.FindPlayer:
-                break;
-        }
     }
 
     protected override void Update()
@@ -74,10 +62,6 @@ public class StalkerScript : Enemy
         ChangeState(EnemyState.Chasing);
         switch (currentStalkerState)
         {
-            case StalkerState.FindPlayer:
-                _agent.SetDestination(_playerLocation.position);
-                _enemyMovement.SetDirection(_agent.desiredVelocity);
-                break;
             case StalkerState.FlankingPlayer:
                 _agent.SetDestination(_playerBackLocation);
                 _enemyMovement.SetDirection(_agent.desiredVelocity);
@@ -107,7 +91,7 @@ public class StalkerScript : Enemy
         Collider2D hit = Physics2D.OverlapCircle(_enemyTransform.position, _findPlayerRadius, _playerLayer);
         if (hit == null)
         {
-            ChangeStalkerState(StalkerState.FindPlayer);
+            ChangeState(EnemyState.Idle);
         }
         else if(hit != null)
         {
@@ -136,7 +120,7 @@ public class StalkerScript : Enemy
                 StopCoroutine(_findPlayerBackCoroutine);
                 _findPlayerBackCoroutine = null;
             }
-            ChangeStalkerState(StalkerState.FindPlayer);
+            ChangeStalkerState(StalkerState.FlankingPlayer);
         }
     }
 
@@ -232,6 +216,15 @@ public class StalkerScript : Enemy
     {
         _agent.isStopped = false;
         _animator.SetBool("Chasing", true);
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _findPlayerRadius);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, _chasingRadius);
     }
 
 }
