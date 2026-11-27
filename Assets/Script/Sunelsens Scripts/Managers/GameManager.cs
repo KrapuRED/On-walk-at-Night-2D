@@ -22,11 +22,19 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.LevelComplete_SFX);
+        }
         OnVictory?.Invoke();
     }
 
     public void Defeat()
     {
+        if(AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.PlayerDead_SFX);
+        }
         OnDefeat?.Invoke();
     }
 }

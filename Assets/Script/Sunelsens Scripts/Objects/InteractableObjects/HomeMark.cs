@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class HomeMark : InteractableObject
 {
+    [SerializeField] private AudioSource _homeAudioSource;
+
     public override void Interact()
     {
         if (!CanInteract())
@@ -15,7 +18,17 @@ public class HomeMark : InteractableObject
         if (_isInteracting)
         {
             Debug.Log("Make Sound");
+            if (!_homeAudioSource.isPlaying)
+            {
+                _homeAudioSource.clip = AudioManager.instance.InteractingHomeMark_SFX;
+                _homeAudioSource.loop = true;
+                _homeAudioSource.Play();
+            }
             SendSound();
+        }
+        else
+        {
+            _homeAudioSource.Stop();
         }
     }
 

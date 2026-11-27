@@ -101,10 +101,11 @@ MonoBehaviour:
   _thugPatrol: 0
   _rotationPatrol: 90
   _patrolWaitTime: 1
-  _rayCastCount: 5
+  _rayCastCount: 13
   _checkingSound: 0
   _agent: {fileID: 472121185167208212}
   _targetLocation: {x: 0, y: 0}
+  _soundTimer: 1.5
 --- !u!114 &1595786462669221762
 MonoBehaviour:
   m_ObjectHideFlags: 0

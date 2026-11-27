@@ -71,6 +71,7 @@ public class StalkerScript : Enemy
     protected override void Update()
     {
         base.Update();
+        ChangeState(EnemyState.Chasing);
         switch (currentStalkerState)
         {
             case StalkerState.FindPlayer:
