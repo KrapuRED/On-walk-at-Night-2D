@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
         _staminaPlayer.OnStaminaChanged -= UpdateStaminaUI;
         GameManager.Instance.OnVictory -= ShowVictoryUI;
         GameManager.Instance.OnDefeat -= ShowDefeatUI;
+        ScoreManager.Instance.OnScoreChange -= UpdateScoreUI;
     }
 
     private void Initialize(StatPlayer statPlayer)

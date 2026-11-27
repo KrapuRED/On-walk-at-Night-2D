@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb3814b0ba1dc447ab811edb0079dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
-  _totalLevel: 0
+  _totalLevel: 3
