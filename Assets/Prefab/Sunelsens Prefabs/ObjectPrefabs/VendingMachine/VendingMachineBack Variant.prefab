@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 60898967790786031, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9568572
+      objectReference: {fileID: 0}
+    - target: {fileID: 60898967790786031, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Size.y
+      value: 3.2861795
+      objectReference: {fileID: 0}
+    - target: {fileID: 60898967790786031, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.009226084
+      objectReference: {fileID: 0}
+    - target: {fileID: 60898967790786031, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.14967203
+      objectReference: {fileID: 0}
     - target: {fileID: 1043733060976198469, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.54252
@@ -59,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 3191210573105451196, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
       propertyPath: _knockedDownSprite
       value: 
-      objectReference: {fileID: -7776334503630883661, guid: b1cc144de16931345acebbe2f7ccab5b, type: 3}
+      objectReference: {fileID: 21300000, guid: 8d1f9cacfec2fc0458496f2e51a89302, type: 3}
     - target: {fileID: 3558439815842573891, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
       propertyPath: m_Name
       value: VendingMachineBack Variant

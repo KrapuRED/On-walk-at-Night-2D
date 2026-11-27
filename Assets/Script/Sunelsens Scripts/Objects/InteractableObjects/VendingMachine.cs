@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class VendingMachine : InteractableObject
 {
     [SerializeField] private Sprite _knockedDownSprite;
+    [SerializeField] private Collider2D _knockedDownCollider;
+    [SerializeField] private Collider2D _upCollider;
     [SerializeField] private NavMeshSurface _navMeshSurface;
 
     private void Start()
@@ -23,6 +25,8 @@ public class VendingMachine : InteractableObject
 
     private void KnockVending()
     {
+        _upCollider.enabled = false;
+        _knockedDownCollider.enabled = true;
         Debug.Log("Vending Knocked");
         IsInteracted = true;
         _spriteRenderer.sprite = _knockedDownSprite;

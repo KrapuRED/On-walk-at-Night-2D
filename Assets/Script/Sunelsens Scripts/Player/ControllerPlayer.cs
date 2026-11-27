@@ -10,6 +10,7 @@ public class ControllerPlayer : StatePlayer
     public event Action<StatPlayer> OnInitialize;
     public event Action<float> OnSpeedChanged;
     public event Action<float> OnSprint;
+    public event Action<Vector2> OnLastDirectionChanged;
 
     [SerializeField] private StatPlayer _statPlayer;
 
@@ -57,6 +58,7 @@ public class ControllerPlayer : StatePlayer
         if (_currentDirection != Vector2.zero)
         {
             _lastDirection = _currentDirection;
+            OnLastDirectionChanged?.Invoke(_lastDirection);
         }
         
     }
