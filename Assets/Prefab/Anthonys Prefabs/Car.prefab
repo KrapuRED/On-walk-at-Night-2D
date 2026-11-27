@@ -56,7 +56,7 @@ MonoBehaviour:
   _enemySpriteRenderer: {fileID: 7827168120364732530}
   _animator: {fileID: 8558260434605338835}
   _waypointMoverEnemy: {fileID: 9185484359551230173}
-  _maxDistanceSound: 10
+  _maxDistanceSound: 6
   carSource: {fileID: 5944103822823080263}
 --- !u!114 &8470586223190310711
 MonoBehaviour:

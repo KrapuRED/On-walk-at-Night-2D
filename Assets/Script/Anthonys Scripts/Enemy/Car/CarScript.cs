@@ -63,4 +63,11 @@ public class CarScript : Enemy
             _enemyMovement.SetDirection(_waypointMoverEnemy.MoveTowardWayPoint());
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.burlywood;
+        Gizmos.DrawWireSphere(transform.position, _maxDistanceSound);
+    }
+
 }
