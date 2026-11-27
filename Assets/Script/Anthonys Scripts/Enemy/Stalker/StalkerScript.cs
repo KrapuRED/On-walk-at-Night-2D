@@ -44,9 +44,13 @@ public class StalkerScript : Enemy
         _playerLocation = GameObject.FindGameObjectWithTag("Player").transform;
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+        _agent.updatePosition = false;
         ChangeState(EnemyState.Chasing);
     }
-
+    protected override void Start()
+    {
+        base.Start();
+    }
     public void ChangeStalkerState(StalkerState state)
     {
         if (currentStalkerState == state) return;
@@ -64,16 +68,18 @@ public class StalkerScript : Enemy
         }
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         switch (currentStalkerState)
         {
             case StalkerState.FindPlayer:
                 _agent.SetDestination(_playerLocation.position);
+                _enemyMovement.SetDirection(_agent.desiredVelocity);
                 break;
             case StalkerState.FlankingPlayer:
                 _agent.SetDestination(_playerBackLocation);
-
+                _enemyMovement.SetDirection(_agent.desiredVelocity);
                 if (Vector2.Distance(_playerBackLocation, _enemyTransform.position) < _distanceCheck)
                 {
                     CalculatePlayerBackLocation();
@@ -83,10 +89,11 @@ public class StalkerScript : Enemy
                 break;
             case StalkerState.ChasingPlayer:
                 _agent.SetDestination(_playerLocation.position);
+                _enemyMovement.SetDirection(_agent.desiredVelocity);
                 break;
 
         }
-
+        _agent.nextPosition = _enemyTransform.position;
         CheckFirstPhase();
         CheckFinalPhase();
 
@@ -218,10 +225,12 @@ public class StalkerScript : Enemy
         base.EnemyIdle();
         _agent.isStopped = true;
         _agent.velocity = Vector3.zero;
+        _animator.SetBool("Chasing", false);
     }
     protected override void EnemyChasing()
     {
         _agent.isStopped = false;
+        _animator.SetBool("Chasing", true);
     }
 
 }
