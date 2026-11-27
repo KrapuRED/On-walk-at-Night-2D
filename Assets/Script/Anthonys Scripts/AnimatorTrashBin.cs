@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class AnimatorTrashBin : MonoBehaviour
 {
+    [SerializeField] private MetalTrashBin _metalTrashBin;
     [SerializeField] private Animator _animator;
 
     private void Start()
@@ -17,5 +18,6 @@ public class AnimatorTrashBin : MonoBehaviour
     public void AnimationTrashBin_Off()
     {
         _animator.SetBool("isInteract", false);
+        _metalTrashBin.GoBack();
     }
 }
