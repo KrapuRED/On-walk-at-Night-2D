@@ -411,8 +411,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.06645489, y: -0.68116117}
-  m_Radius: 0.32832563
+  m_Offset: {x: 0.073396325, y: -0.74164987}
+  m_Radius: 0.21329868
 --- !u!1 &3409339389357481037
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 6957482751407393654}
   - component: {fileID: 1492684836806370844}
   - component: {fileID: 6700166199081121146}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: PickUpCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

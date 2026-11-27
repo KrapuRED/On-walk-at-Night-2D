@@ -21,6 +21,7 @@ public class MetalTrashBin : InteractableObject
         _spriteRenderer.sprite = _kickedSprite;//animation start
         //_animator.SetTrigger();
         StartCoroutine(WaitToGoBack());
+        AudioManager.instance.PlaySFX(AudioManager.instance.TrashBinKicked_SFX);
     }
 
     IEnumerator WaitToGoBack()
