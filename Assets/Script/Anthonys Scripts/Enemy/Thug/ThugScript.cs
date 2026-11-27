@@ -45,12 +45,23 @@ public class ThugScript : Enemy
     [Header("Direction")]
     [SerializeField] private Vector2 _targetLocation;
 
+    [Header("SFX Setting")]
+    [SerializeField] private float _soundTimer = 1.5f;
+    private float _currSoundTimer = 0;
 
     protected override void Start()
     {
         base.Start();
+
+        _currSoundTimer = _soundTimer;
+
         _enemyTransform = GetComponent<Transform>();
-        _agent = GetComponent<NavMeshAgent>();
+
+        if(_agent == null)
+        {
+            _agent = GetComponent<NavMeshAgent>();
+        }
+
         _playerLocation = GameObject.FindGameObjectWithTag("Player").transform;
         _agent.updatePosition = false;
         _agent.updateRotation = false;
@@ -61,6 +72,7 @@ public class ThugScript : Enemy
     {
         CastRays();
         SpriteRotationUpdate();
+        PlaySFX();
 
         if (currentState == EnemyState.Chasing)
         {
@@ -72,6 +84,8 @@ public class ThugScript : Enemy
             _agent.SetDestination(_targetLocation);
             _enemyMovement.SetDirection(_agent.desiredVelocity);
             _agent.nextPosition = _enemyTransform.position;
+
+
             // ===== For Check Sound Event ======
 
             if (_checkingSound)
@@ -83,6 +97,7 @@ public class ThugScript : Enemy
 
                 return;
             }
+
 
 
         }
@@ -107,6 +122,23 @@ public class ThugScript : Enemy
 
     }
 
+
+    private void PlaySFX()
+    {
+        if (_currSoundTimer < _soundTimer)
+        {
+            _currSoundTimer += Time.deltaTime;
+        }
+        else
+        {
+
+            if (AudioManager.instance != null && (currentState == EnemyState.Chasing))
+            {
+                AudioManager.instance.PlaySFX(AudioManager.instance.ThugAlerted_SFX);
+                _currSoundTimer = 0;
+            }
+        }
+    }
 
     // =================================== PATROLLING LEFT RIGHT ===========================================
 
@@ -244,10 +276,6 @@ public class ThugScript : Enemy
         _patrolCoroutine = null;
         _animator.SetBool("Chasing", true);
 
-        if(AudioManager.instance != null)
-        {
-            AudioManager.instance.PlaySFX(AudioManager.instance.ThugAlerted_SFX);
-        }
     }
 
 

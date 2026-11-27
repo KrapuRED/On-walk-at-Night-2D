@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 60898967790786031, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Size.x
+      value: 2.1851797
+      objectReference: {fileID: 0}
+    - target: {fileID: 60898967790786031, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9629173
+      objectReference: {fileID: 0}
+    - target: {fileID: 60898967790786031, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 60898967790786031, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.10416651
+      objectReference: {fileID: 0}
+    - target: {fileID: 60898967790786031, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.004386902
+      objectReference: {fileID: 0}
     - target: {fileID: 1043733060976198469, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.54252
@@ -68,6 +88,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5015163387322599435, guid: 5d5bc30e9477f8a42bffbccb322436fd, type: 3}
+    - target: {fileID: 7700709537169499835, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Size.x
+      value: 0.32928276
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700709537169499835, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Size.y
+      value: 0.98270226
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700709537169499835, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.019449234
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700709537169499835, guid: 9f5086a845227a846bc0bf4061ee0807, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.008648872
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
