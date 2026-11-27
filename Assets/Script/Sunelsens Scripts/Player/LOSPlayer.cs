@@ -111,4 +111,39 @@ public class LOSPlayer : MonoBehaviour
     {
         _lightTransform.rotation = Quaternion.Euler(0f, 0f, _rotationAngle);
     }
+
+    private void OnDrawGizmos()
+    {
+        if (_sightRadius <= 0) return;
+
+        // 1. Garis Utama (Tengah) - Merah
+        Gizmos.color = Color.red;
+        Vector2 centerDir = Quaternion.Euler(0, 0, _rotationAngle) * Vector2.up;
+        Gizmos.DrawRay(transform.position, centerDir * _sightRadius);
+
+        // 2. Garis Samping (Kipas Atas & Bawah) - Kuning
+        Gizmos.color = Color.yellow;
+        int halfRays = _rayCastCount / 2;
+        if (halfRays <= 0) return;
+
+        float angleStep = (_sightAngle / 2f) / halfRays;
+
+        for (int i = 1; i <= halfRays; i++)
+        {
+            float currentOffset = i * angleStep;
+
+            // Garis Atas
+            Vector2 upperDir = Quaternion.Euler(0, 0, _rotationAngle + currentOffset) * Vector2.up;
+            Gizmos.DrawRay(transform.position, upperDir * _sightRadius);
+
+            // Garis Bawah
+            Vector2 lowerDir = Quaternion.Euler(0, 0, _rotationAngle - currentOffset) * Vector2.up;
+            Gizmos.DrawRay(transform.position, lowerDir * _sightRadius);
+        }
+
+        // 3. Busur Terluar (Batas Radius) - Putih Transparan
+        Gizmos.color = new Color(1f, 1f, 1f, 0.25f);
+        Gizmos.DrawWireSphere(transform.position, _sightRadius);
+    }
+
 }

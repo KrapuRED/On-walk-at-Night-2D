@@ -108,7 +108,6 @@ GameObject:
   - component: {fileID: 144780632557442238}
   - component: {fileID: 4025283741270878511}
   - component: {fileID: 7869086488316580755}
-  - component: {fileID: 7880695694969952275}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -436,34 +435,11 @@ MonoBehaviour:
   _rotationAngle: 90
   _rayCastCount: 16
   _rotationSpeed: 1000
-  _lightTransform: {fileID: 6957482751407393654}
-  _sightLight: {fileID: 7941280438680728265}
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
---- !u!114 &7880695694969952275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2547601421591008777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 322c875393c47dd4dabc0ddce65b5283, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LOSPlayer
-  _controllerPlayer: {fileID: 1778042409752129358}
-  _sightRadius: 5
-  _sightAngle: 45
-  _rotationAngle: 90
-  _rayCastCount: 16
-  _rotationSpeed: 1000
   _lightTransform: {fileID: 6192415510625762100}
   _sightLight: {fileID: 7941280438680728265}
   _enemyLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 192
 --- !u!1 &3409339389357481037
 GameObject:
   m_ObjectHideFlags: 0

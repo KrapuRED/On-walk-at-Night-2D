@@ -8,7 +8,7 @@ public class VendingMachine : InteractableObject
     [SerializeField] private Collider2D _knockedDownCollider;
     [SerializeField] private Collider2D _upCollider;
     [SerializeField] private NavMeshSurface _navMeshSurface;
-
+    public bool IsKnocked;
     private void Start()
     {
         if(_navMeshSurface == null)
@@ -28,6 +28,7 @@ public class VendingMachine : InteractableObject
         _upCollider.enabled = false;
         _knockedDownCollider.enabled = true;
         Debug.Log("Vending Knocked");
+        IsKnocked = true;
         IsInteracted = true;
         _spriteRenderer.sprite = _knockedDownSprite;
         _navMeshSurface.BuildNavMesh();
