@@ -44,6 +44,7 @@ public class ButtonManager : MonoBehaviour
     public void PlayGame()
     {
         TransitionManager.Instance.LoadScene("LevelSelectScene");
+        PlayButtonSFX();
     }
 
     public void LoadLevel1()
@@ -63,7 +64,7 @@ public class ButtonManager : MonoBehaviour
 
     public void ExitGame()
     {
-        //PlayButtonSFX();
+        PlayButtonSFX();
         Application.Quit();
     }
 
@@ -87,7 +88,7 @@ public class ButtonManager : MonoBehaviour
 
     public void OpenCloseMainMenuSettings()
     {
-        //PlayButtonSFX();
+        PlayButtonSFX();
         if (_settingPanel.alpha == 1f)
         {
             ClosePanel(_settingPanel);
@@ -102,7 +103,7 @@ public class ButtonManager : MonoBehaviour
 
     public void OpenClosePause()
     {
-        //PlayButtonSFX();
+        PlayButtonSFX();
         Debug.Log("vhat");
         if (_pausePanel.alpha == 1f || _settingPausePanel.alpha == 1f)
         {
@@ -119,7 +120,7 @@ public class ButtonManager : MonoBehaviour
 
     public void OpenClosePauseSetting()
     {
-        //PlayButtonSFX();
+        PlayButtonSFX();
         if (_settingPausePanel.alpha == 1f)
         {
             ClosePanel(_settingPausePanel);
@@ -134,7 +135,7 @@ public class ButtonManager : MonoBehaviour
 
     public void OpenCloseCredit()
     {
-        //PlayButtonSFX();
+        PlayButtonSFX();
         if (_creditPanel.alpha == 1f)
         {
             ClosePanel(_creditPanel);
@@ -159,5 +160,13 @@ public class ButtonManager : MonoBehaviour
         panel.alpha = 1f;
         panel.interactable = true;
         panel.blocksRaycasts = true;
+    }
+
+    private void PlayButtonSFX()
+    {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.UIClick_SFX);
+        }
     }
 }

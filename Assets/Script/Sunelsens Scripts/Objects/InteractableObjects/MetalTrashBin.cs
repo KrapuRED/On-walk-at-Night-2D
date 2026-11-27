@@ -5,7 +5,7 @@ public class MetalTrashBin : InteractableObject
 {
     [SerializeField] private Sprite _kickedSprite;
     [SerializeField] private Sprite _upSprite;
-    //[SerializeField] private Animator _animator;
+    [SerializeField] private AnimatorTrashBin _animatorTrashBin;
     //[SerializeField] private float _waitSeconds;
 
     public override void Interact()
@@ -19,11 +19,20 @@ public class MetalTrashBin : InteractableObject
         Debug.Log("Bin Kicked");
         IsInteracted = true;
         _spriteRenderer.sprite = _kickedSprite;//animation start
-        //_animator.SetTrigger();
         StartCoroutine(WaitToGoBack());
         AudioManager.instance.PlaySFX(AudioManager.instance.TrashBinKicked_SFX);
     }
-
+    private void Update()
+    {
+        if (_isInteracting)
+        {
+            _animatorTrashBin.AnimationTrashBin_On();
+        }
+        else
+        {
+            _animatorTrashBin.AnimationTrashBin_Off();
+        }
+    }
     IEnumerator WaitToGoBack()
     {
         yield return new WaitForSeconds(1f);

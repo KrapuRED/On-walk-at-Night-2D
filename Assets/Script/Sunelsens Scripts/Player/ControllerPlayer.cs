@@ -18,6 +18,10 @@ public class ControllerPlayer : StatePlayer
     private Vector2 _lastDirection = Vector2.right;
     private bool _canSprint = false;
     private float _currStamina;
+
+    [Header("Animator")]
+    [SerializeField] private Animator _animator;
+
     private void Awake()
     {
         _inputPlayer = GetComponent<InputPlayer>();
@@ -67,22 +71,30 @@ public class ControllerPlayer : StatePlayer
     {
         if (_currentState == PlayerState.Interacting)
         {
+            _animator.SetBool("isInteract", true);
             return;
+        }
+        else
+        {
+            _animator.SetBool("isInteract", false);
         }
 
         if (_currentDirection == Vector2.zero)
         {
             ChangeState(PlayerState.Idle);
+            _animator.SetBool("isWalking", false);
             return;
         }
 
         if (_canSprint && _currStamina > 0)
         {
             ChangeState(PlayerState.Sprinting);
+            _animator.SetBool("isWalking", true);
         }
         else
         {
             ChangeState(PlayerState.Walking);
+            _animator.SetBool("isWalking", true);
         }
     }
 

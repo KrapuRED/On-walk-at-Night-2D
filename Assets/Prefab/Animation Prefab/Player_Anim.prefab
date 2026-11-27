@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7397970440299332697}
   - component: {fileID: 8033963139713968005}
   - component: {fileID: 6437440261470795184}
+  - component: {fileID: 3258815887649834582}
   m_Layer: 0
   m_Name: Player_Anim
   m_TagString: Untagged
@@ -169,6 +170,18 @@ MonoBehaviour:
     m_Extent: {x: 0.3769999, y: 0.97099996, z: 0}
   m_AlwaysUpdate: 1
   m_AutoRebind: 1
+--- !u!114 &3258815887649834582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7988083806935270148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506875ce86f269f4da21f51d9a1a503e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimatorPlayer
 --- !u!1 &8452056125781819469
 GameObject:
   m_ObjectHideFlags: 0
