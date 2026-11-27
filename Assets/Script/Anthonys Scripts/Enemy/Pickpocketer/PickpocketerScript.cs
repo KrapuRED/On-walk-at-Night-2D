@@ -3,8 +3,9 @@ using UnityEngine;
 public class PickpocketerScript : Enemy
 {
     [SerializeField] private WaypointMoverEnemy _waypointMoverEnemy;
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         if (_waypointMoverEnemy == null)
         {
             _waypointMoverEnemy = GetComponent<WaypointMoverEnemy>();

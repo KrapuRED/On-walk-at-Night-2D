@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: 22ff2c724b91bfb4894b5a1def074a09
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -355337778376437716
+    second: vending machine fall left 500 x 500_0
+  - first:
+      213: -426346084897785377
+    second: vending machine fall left 500 x 500_1
+  - first:
+      213: -4841499752831655842
+    second: vending machine fall left 500 x 500_2
+  - first:
+      213: -2564137181761248604
+    second: vending machine fall left 500 x 500_3
+  - first:
+      213: -881735071334160639
+    second: vending machine fall left 500 x 500_4
+  - first:
+      213: 2115643360733046778
+    second: vending machine fall left 500 x 500_5
+  - first:
+      213: -5644860206015110523
+    second: vending machine fall left 500 x 500_6
+  - first:
+      213: 9144623570473950672
+    second: vending machine fall left 500 x 500_7
+  - first:
+      213: -2371354440855716299
+    second: vending machine fall left 500 x 500_8
+  - first:
+      213: -7592073399167892044
+    second: vending machine fall left 500 x 500_9
+  - first:
+      213: 4061873052557521885
+    second: vending machine fall left 500 x 500_10
+  - first:
+      213: 6728200817958357676
+    second: vending machine fall left 500 x 500_11
+  - first:
+      213: 1610436694671927704
+    second: vending machine fall left 500 x 500_12
+  - first:
+      213: 2276924587630846061
+    second: vending machine fall left 500 x 500_13
+  - first:
+      213: 2478955126672636799
+    second: vending machine fall left 500 x 500_14
+  - first:
+      213: 4786216859515192681
+    second: vending machine fall left 500 x 500_15
+  - first:
+      213: -191256943591627374
+    second: vending machine fall left 500 x 500_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 352
+        width: 43
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2098985c26911bf0800000000000000
+      internalID: -355337778376437716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 382
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd9f942ae70551af0800000000000000
+      internalID: -426346084897785377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 68
+        width: 455
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e50e35c40a98fccb0800000000000000
+      internalID: -4841499752831655842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 182
+        width: 52
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a2efbd81da5a6cd0800000000000000
+      internalID: -2564137181761248604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_4
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 147
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 107af1fcf9273c3f0800000000000000
+      internalID: -881735071334160639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_5
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 162
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af728eb6d664c5d10800000000000000
+      internalID: 2115643360733046778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 83
+        width: 31
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5822bb5ec8d69a1b0800000000000000
+      internalID: -5644860206015110523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_7
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 9
+        width: 125
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dd93c2efaa38ee70800000000000000
+      internalID: 9144623570473950672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_8
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 31
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53eff3433b1471fd0800000000000000
+      internalID: -2371354440855716299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_9
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 20
+        width: 65
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b5c7edc77983a690800000000000000
+      internalID: -7592073399167892044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_10
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 50
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd33c64450cae5830800000000000000
+      internalID: 4061873052557521885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_11
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 18
+        width: 29
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caa86e31ffe5f5d50800000000000000
+      internalID: 6728200817958357676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_12
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 31
+        width: 40
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 899ac2f24ab695610800000000000000
+      internalID: 1610436694671927704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_13
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 12
+        width: 105
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d60e61a49d2499f10800000000000000
+      internalID: 2276924587630846061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_14
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 10
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7bb47bbd84076220800000000000000
+      internalID: 2478955126672636799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_15
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 10
+        width: 34
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 965836110ee0c6240800000000000000
+      internalID: 4786216859515192681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vending machine fall left 500 x 500_16
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 9
+        width: 61
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 295e468b2d4885df0800000000000000
+      internalID: -191256943591627374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      vending machine fall left 500 x 500_0: -355337778376437716
+      vending machine fall left 500 x 500_1: -426346084897785377
+      vending machine fall left 500 x 500_10: 4061873052557521885
+      vending machine fall left 500 x 500_11: 6728200817958357676
+      vending machine fall left 500 x 500_12: 1610436694671927704
+      vending machine fall left 500 x 500_13: 2276924587630846061
+      vending machine fall left 500 x 500_14: 2478955126672636799
+      vending machine fall left 500 x 500_15: 4786216859515192681
+      vending machine fall left 500 x 500_16: -191256943591627374
+      vending machine fall left 500 x 500_2: -4841499752831655842
+      vending machine fall left 500 x 500_3: -2564137181761248604
+      vending machine fall left 500 x 500_4: -881735071334160639
+      vending machine fall left 500 x 500_5: 2115643360733046778
+      vending machine fall left 500 x 500_6: -5644860206015110523
+      vending machine fall left 500 x 500_7: 9144623570473950672
+      vending machine fall left 500 x 500_8: -2371354440855716299
+      vending machine fall left 500 x 500_9: -7592073399167892044
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
