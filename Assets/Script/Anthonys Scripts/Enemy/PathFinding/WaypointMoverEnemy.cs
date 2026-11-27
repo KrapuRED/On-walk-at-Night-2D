@@ -5,13 +5,17 @@ using UnityEngine;
 public class WaypointMoverEnemy : MonoBehaviour
 {
     [SerializeField] private Transform waypointParent;
-    [SerializeField] private float checkChangeDirction = 0.5f;
+    [SerializeField] private float checkChangeDirection = 0.5f;
     [SerializeField] private bool isLooping;
+
+    [Header("Setting")]
+    [SerializeField] private float _delayToNextCheckPoint = 0.1f;
 
     private Transform[] waypoints;
     private int currentIndex = 0;
     private Rigidbody2D rb;
-
+    private float _waitTimer = 0f;
+    private bool _isWaiting = false;
 
     private void Awake()
     {
@@ -29,29 +33,53 @@ public class WaypointMoverEnemy : MonoBehaviour
 
     public Vector2 MoveTowardWayPoint()
     {
-        Transform target = waypoints[currentIndex];
+        if (_isWaiting)
+        {
+            _waitTimer += Time.deltaTime;
+            if (_waitTimer >= _delayToNextCheckPoint)
+            {
+                _isWaiting = false;
+                _waitTimer = 0f;
+                GoToNextWaypoint();
+            }
+            return Vector2.zero;
+        }
 
+        Transform target = waypoints[currentIndex];
         Vector2 dir = ((Vector2)target.position - rb.position).normalized;
 
-        if (Vector2.Distance(rb.position, target.position) <= checkChangeDirction)
+        if (Vector2.Distance(rb.position, target.position) <= checkChangeDirection)
         {
-            currentIndex++;
-
-            if (currentIndex >= waypoints.Length)
+            if (_delayToNextCheckPoint > 0f)
             {
-                if (isLooping)
-                {
-                    currentIndex = 0;
-                }
-                else
-                {
-                    rb.position = waypoints[0].position;
-                    currentIndex = 1;
-                }
+                _isWaiting = true;
+                _waitTimer = 0f;
+                return Vector2.zero;
+            }
+            else
+            {
+                GoToNextWaypoint();
             }
         }
 
         return dir;
+    }
 
+    private void GoToNextWaypoint()
+    {
+        currentIndex++;
+
+        if (currentIndex >= waypoints.Length)
+        {
+            if (isLooping)
+            {
+                currentIndex = 0;
+            }
+            else
+            {
+                rb.position = waypoints[0].position;
+                currentIndex = waypoints.Length > 1 ? 1 : 0;
+            }
+        }
     }
 }
