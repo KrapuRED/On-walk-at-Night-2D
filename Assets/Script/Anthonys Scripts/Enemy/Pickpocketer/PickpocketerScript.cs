@@ -39,8 +39,10 @@ public class PickpocketerScript : Enemy
 
     // Enemy Hit Vending Machine
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D (collision);
+
         if (collision == null) return;
         if (collision.CompareTag("VendingMachine") && collision.GetComponent<VendingMachine>().IsKnocked)
         {
