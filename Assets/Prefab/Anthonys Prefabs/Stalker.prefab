@@ -83,7 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StalkerScript
   currentState: 0
   _enemyMovement: {fileID: 0}
-  _enemySpeed: 4
+  _enemySpeed: 0.7
   _enemySpriteRenderer: {fileID: 5451769775857299614}
   _animator: {fileID: 8666103794272130902}
   currentStalkerState: 0
