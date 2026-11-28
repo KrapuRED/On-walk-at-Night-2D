@@ -147,7 +147,7 @@ MonoBehaviour:
   m_BuildHeightMesh: 0
   m_MinRegionArea: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: 40598fe0ae68366498eb82e67bc8acf5, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 79eb1d4cbec3b8844b9e0d2bb7156298, type: 2}
 --- !u!114 &1911456376523319817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57962,8 +57962,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 13, y: 6, z: 0}
-      m_Extent: {x: 7, y: 9, z: 0}
+      m_Center: {x: -1.5, y: 1.4639969, z: 0}
+      m_Extent: {x: 13.5, y: 8.463997, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0

@@ -101,7 +101,7 @@ public class LOSPlayer : MonoBehaviour
         if (hit.collider.TryGetComponent<StalkerScript>(out StalkerScript stalker))
         {
             _stalkerScript = stalker;
-            stalker.PlayerLooking();
+            //stalker.PlayerLooking();
             return true;
         }
         return false;

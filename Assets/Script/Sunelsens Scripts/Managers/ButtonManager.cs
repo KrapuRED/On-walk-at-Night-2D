@@ -42,22 +42,25 @@ public class ButtonManager : MonoBehaviour
 
     public void PlayGame()
     {
-        TransitionManager.Instance.LoadScene("LevelSelectScene");
         PlayButtonSFX();
+        TransitionManager.Instance.LoadScene("LevelSelectScene");
     }
 
     public void LoadLevel1()
     {
+        PlayButtonSFX();
         TransitionManager.Instance.LoadScene(Level1Name);
     }
 
     public void LoadLevel2()
     {
+        PlayButtonSFX();
         TransitionManager.Instance.LoadScene(Level2Name);
     }
 
     public void LoadLevel3()
     {
+        PlayButtonSFX();
         TransitionManager.Instance.LoadScene(Level3Name);
     }
 
@@ -69,18 +72,21 @@ public class ButtonManager : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        PlayButtonSFX();
         Time.timeScale = 1f;
         TransitionManager.Instance.LoadScene("MainMenu");
     }
 
     public void BackToLevelSelect()
     {
+        PlayButtonSFX();
         Time.timeScale = 1f;
         TransitionManager.Instance.LoadScene("LevelSelectScene");
     }
 
     public void Retry()
     {
+        PlayButtonSFX();
         Debug.Log("Retry Scene");
         TransitionManager.Instance.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -134,6 +140,7 @@ public class ButtonManager : MonoBehaviour
 
     public void OpenCloseCredit()
     {
+        PlayButtonSFX();
         TransitionManager.Instance.LoadScene("CreditScene");
     }
 

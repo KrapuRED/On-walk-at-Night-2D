@@ -35,6 +35,8 @@ public class ThugScript : Enemy
 
     [Header("Raycast LOS Setting")]
     [SerializeField] private int _rayCastCount = 16;
+    [SerializeField] private Vector2 _raycastOffset;
+    private Vector2 RaycastOrigin => (Vector2)transform.position + _raycastOffset;
 
     [Header("Event Setting")]
     [SerializeField] private bool _checkingSound = false;
@@ -48,6 +50,8 @@ public class ThugScript : Enemy
     [Header("SFX Setting")]
     [SerializeField] private float _soundTimer = 1.5f;
     private float _currSoundTimer = 0;
+    [SerializeField] private AudioSource _sfxThugSource;
+    [SerializeField] private float _maxDistanceSound = 5f;
 
     protected override void Start()
     {
@@ -120,6 +124,10 @@ public class ThugScript : Enemy
 
         }
 
+        float distance = Vector2.Distance(_playerLocation.position, RaycastOrigin);
+        float value = 1f - Mathf.Clamp01(distance / _maxDistanceSound);
+        _sfxThugSource.volume = value;
+
     }
 
 
@@ -128,15 +136,6 @@ public class ThugScript : Enemy
         if (_currSoundTimer < _soundTimer)
         {
             _currSoundTimer += Time.deltaTime;
-        }
-        else
-        {
-
-            if (AudioManager.instance != null && (currentState == EnemyState.Chasing))
-            {
-                AudioManager.instance.PlaySFX(AudioManager.instance.ThugAlerted_SFX);
-                _currSoundTimer = 0;
-            }
         }
     }
 
@@ -237,7 +236,7 @@ public class ThugScript : Enemy
 
     private bool CheckRay(Vector2 direction)
     {
-        RaycastHit2D hit = Physics2D.Raycast(_enemyTransform.position, direction, _sightRadius, _playerLayer);
+        RaycastHit2D hit = Physics2D.Raycast(RaycastOrigin, direction, _sightRadius, _playerLayer);
         return hit.collider != null && hit.collider.CompareTag("Player");
     }
 
@@ -276,6 +275,16 @@ public class ThugScript : Enemy
         _patrolCoroutine = null;
         _animator.SetBool("Chasing", true);
 
+
+        if (AudioManager.instance != null && _currSoundTimer >= _soundTimer)
+        {
+            //AudioManager.instance.PlaySFX(AudioManager.instance.ThugAlerted_SFX);
+            _sfxThugSource.Stop();
+            _sfxThugSource.clip = AudioManager.instance.ThugAlerted_SFX;
+            _sfxThugSource.Play();
+            _currSoundTimer = 0;
+        }
+
     }
 
 
@@ -298,12 +307,10 @@ public class ThugScript : Enemy
 
     private void OnDrawGizmos()
     {
-        // Gambar Garis Utama (Warna Merah biar kelihatan bedanya)
         Gizmos.color = Color.red;
         Vector2 centerDir = Quaternion.Euler(0, 0, _rotationAngle) * Vector2.up;
-        Gizmos.DrawRay(transform.position, centerDir * _sightRadius);
+        Gizmos.DrawRay(RaycastOrigin, centerDir * _sightRadius);
 
-        // Gambar Garis Atas & Bawah (Warna Kuning)
         Gizmos.color = Color.yellow;
         int halfRays = _rayCastCount / 2;
         if (halfRays <= 0) return;
@@ -315,10 +322,14 @@ public class ThugScript : Enemy
             float currentOffset = i * angleStep;
 
             Vector2 upperDir = Quaternion.Euler(0, 0, _rotationAngle + currentOffset) * Vector2.up;
-            Gizmos.DrawRay(transform.position, upperDir * _sightRadius);
+            Gizmos.DrawRay(RaycastOrigin, upperDir * _sightRadius);
 
             Vector2 lowerDir = Quaternion.Euler(0, 0, _rotationAngle - currentOffset) * Vector2.up;
-            Gizmos.DrawRay(transform.position, lowerDir * _sightRadius);
+            Gizmos.DrawRay(RaycastOrigin, lowerDir * _sightRadius);
         }
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(RaycastOrigin, _maxDistanceSound);
+
     }
 }

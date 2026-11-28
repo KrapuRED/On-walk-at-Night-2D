@@ -23,6 +23,8 @@ public class StalkerScript : Enemy
     [Header("Setting - Player")]
     [SerializeField] private Transform _playerLocation;
     [SerializeField] private LayerMask _playerLayer;
+    private bool _isBeingLookedAt = false;
+
 
     [Header("Setting - Player -- BackPlayer")]
     [SerializeField] private Vector2 _playerBackLocation;
@@ -40,7 +42,11 @@ public class StalkerScript : Enemy
     {
         _enemyTransform = GetComponent<Transform>();
         _agent = GetComponent<NavMeshAgent>();
-        _playerLocation = GameObject.FindGameObjectWithTag("Player").transform;
+        if(_playerLocation == null)
+        {
+            _playerLocation = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         _agent.updatePosition = false;
@@ -59,7 +65,25 @@ public class StalkerScript : Enemy
     protected override void Update()
     {
         base.Update();
-        ChangeState(EnemyState.Chasing);
+
+        if (_isBeingLookedAt)
+        {
+            _isBeingLookedAt = false;
+            _enemyMovement.SetDirection(Vector2.zero);
+            _agent.nextPosition = _enemyTransform.position;
+            return;
+        }
+
+        CheckFirstPhase();
+        CheckFinalPhase();
+
+        if (currentState == EnemyState.Idle)
+        {
+            _enemyMovement.SetDirection(Vector2.zero);
+            _agent.nextPosition = _enemyTransform.position;
+            return;
+        }
+
         switch (currentStalkerState)
         {
             case StalkerState.FlankingPlayer:
@@ -70,23 +94,23 @@ public class StalkerScript : Enemy
                     CalculatePlayerBackLocation();
                     RestartFindPlayerBackCoroutine();
                 }
-
                 break;
+
             case StalkerState.ChasingPlayer:
                 _agent.SetDestination(_playerLocation.position);
                 _enemyMovement.SetDirection(_agent.desiredVelocity);
                 break;
-
         }
+
         _agent.nextPosition = _enemyTransform.position;
-        CheckFirstPhase();
-        CheckFinalPhase();
-
     }
-
     private void CheckFirstPhase()
     {
-        if (currentStalkerState == StalkerState.ChasingPlayer) return;
+        if (currentStalkerState == StalkerState.ChasingPlayer)
+        {
+            ChangeState(EnemyState.Chasing);
+            return;
+        }
 
         Collider2D hit = Physics2D.OverlapCircle(_enemyTransform.position, _findPlayerRadius, _playerLayer);
         if (hit == null)
@@ -95,6 +119,7 @@ public class StalkerScript : Enemy
         }
         else if(hit != null)
         {
+            ChangeState(EnemyState.Chasing);
             ChangeStalkerState(StalkerState.FlankingPlayer);
 
             if(_findPlayerBackCoroutine == null)
@@ -196,6 +221,8 @@ public class StalkerScript : Enemy
     //Use At When player Spotted Enemy
     public void PlayerLooking()
     {
+        Debug.Log("Player Looking Stalker");
+        _isBeingLookedAt = true;
         ChangeState(EnemyState.Idle);
     }
 
