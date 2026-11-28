@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5224836684208658444}
   - component: {fileID: 5805559846386885190}
   - component: {fileID: 6731321142920087123}
-  - component: {fileID: 1582714653646956056}
+  - component: {fileID: 4408172521420078908}
   m_Layer: 7
   m_Name: Stalker_Logic
   m_TagString: Untagged
@@ -165,8 +165,8 @@ NavMeshAgent:
   m_BaseOffset: 0.94
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!61 &1582714653646956056
-BoxCollider2D:
+--- !u!58 &4408172521420078908
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -199,18 +199,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.008365154, y: 0.011153996}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.8048029, y: 1.9090599}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.09912014, y: -0.6840672}
+  m_Radius: 0.21939278
 --- !u!1001 &3650189308474007113
 PrefabInstance:
   m_ObjectHideFlags: 0

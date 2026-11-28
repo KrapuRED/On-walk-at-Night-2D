@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8470586223190310711}
   - component: {fileID: 9185484359551230173}
   - component: {fileID: 3272974299469863061}
-  - component: {fileID: 8792627015408393210}
+  - component: {fileID: 2801596609789714242}
   m_Layer: 0
   m_Name: Car_Logic
   m_TagString: Untagged
@@ -114,8 +114,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &8792627015408393210
-BoxCollider2D:
+--- !u!70 &2801596609789714242
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -148,18 +148,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.005316496, y: -0.010632873}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.312, y: 1.496}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 2.2511535, y: 1.4678531}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.029844705, y: -0.5073258}
+  m_Size: {x: 1.6240194, y: 0.4467407}
+  m_Direction: 1
 --- !u!1 &1546083222286114484
 GameObject:
   m_ObjectHideFlags: 0

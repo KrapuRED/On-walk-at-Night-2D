@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 4438616612916318126}
   - component: {fileID: 697646637278154661}
   - component: {fileID: 7911177114826075267}
-  - component: {fileID: 5651004448272691638}
+  - component: {fileID: 4810114618438461266}
   m_Layer: 0
   m_Name: Pickpocketer_Logic
   m_TagString: Untagged
@@ -303,8 +303,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &5651004448272691638
-BoxCollider2D:
+--- !u!58 &4810114618438461266
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -337,18 +337,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0028340966, y: 0.0028338432}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.79028606, y: 1.940877}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.016190842, y: -0.75125873}
+  m_Radius: 0.18265873
 --- !u!1001 &174975674182444247
 PrefabInstance:
   m_ObjectHideFlags: 0
