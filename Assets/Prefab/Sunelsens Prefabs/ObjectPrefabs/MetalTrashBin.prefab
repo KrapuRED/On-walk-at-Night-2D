@@ -723,4 +723,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4838dc08cc793b2489b139db217559a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimatorTrashBin
+  _metalTrashBin: {fileID: 1208849933979049729}
   _animator: {fileID: 618703167120046887}
