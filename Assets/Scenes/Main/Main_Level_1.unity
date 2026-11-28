@@ -764,10 +764,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1529978290}
-    - target: {fileID: 1114265871779553580, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Retry
-      objectReference: {fileID: 0}
     - target: {fileID: 2302839985233937567, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -852,10 +848,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1529978290}
-    - target: {fileID: 5075419819873670827, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToLevelSelect
-      objectReference: {fileID: 0}
     - target: {fileID: 8093497119893598534, guid: 2640131c8517ba64b8f09928cc527df0, type: 3}
       propertyPath: m_Name
       value: DefeatCanvas
@@ -1472,10 +1464,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1529978290}
-    - target: {fileID: 7499772173422195337, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToLevelSelect
-      objectReference: {fileID: 0}
     - target: {fileID: 9087414287279540926, guid: b79e124eb1c35094ea4e050a6ec79411, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1884,6 +1872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7601088610982269742, guid: bc7539d6212607746872ac0bae5a7990, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1529978290}
     - target: {fileID: 7790928408220642482, guid: bc7539d6212607746872ac0bae5a7990, type: 3}
       propertyPath: _player
       value: 

@@ -819,6 +819,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7601088610982269742, guid: bc7539d6212607746872ac0bae5a7990, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 224696397}
+    - target: {fileID: 7601088610982269742, guid: bc7539d6212607746872ac0bae5a7990, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenClosePause
+      objectReference: {fileID: 0}
     - target: {fileID: 7790928408220642482, guid: bc7539d6212607746872ac0bae5a7990, type: 3}
       propertyPath: _player
       value: 
