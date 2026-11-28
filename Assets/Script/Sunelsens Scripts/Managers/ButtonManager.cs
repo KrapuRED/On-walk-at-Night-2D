@@ -6,7 +6,6 @@ public class ButtonManager : MonoBehaviour
     [Header("Main Menu")]
     [SerializeField] private CanvasGroup _mainMenuPanel;
     [SerializeField] private CanvasGroup _settingPanel;
-    [SerializeField] private CanvasGroup _creditPanel;
 
     [Header("Pause")]
     [SerializeField] private CanvasGroup _pausePanel;
@@ -135,17 +134,7 @@ public class ButtonManager : MonoBehaviour
 
     public void OpenCloseCredit()
     {
-        PlayButtonSFX();
-        if (_creditPanel.alpha == 1f)
-        {
-            ClosePanel(_creditPanel);
-            OpenPanel(_mainMenuPanel);
-        }
-        else
-        {
-            ClosePanel(_mainMenuPanel);
-            OpenPanel(_creditPanel);
-        }
+        TransitionManager.Instance.LoadScene("CreditScene");
     }
 
     private void ClosePanel(CanvasGroup panel)
